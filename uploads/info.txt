@@ -1,0 +1,107 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2870
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Report finale completo. Ho aggiornato il pain point sull'escalation e ho ripassato tutto dall'inizio per non lasciare buchi.\
+\
+---\
+\
+## 02 \'b7 Alfred Co.Host Platform\
+\
+**Il cockpit da cui l'host configura Alfred.**\
+\
+Se la docs spiega *come* funziona Alfred, la platform \'e8 il posto in cui lo *fai* funzionare. \'c8 un'applicazione web owner-facing: da qui si aggiungono le propriet\'e0, si insegna ad Alfred cosa sapere, si sceglie su quali canali essere live, si gestisce l'abbonamento. \'c8 costruita per operatori hospitality con un livello di dimestichezza digitale molto variabile \'97 dal property manager tech-savvy al B&B familiare che usa WhatsApp da tre anni e nient'altro.\
+\
+---\
+\
+### Scope\
+\
+**Role** Product & UI design \'b7 Frontend (React, vibecoded con Claude Code)\
+**Timeframe** 2024\'96ongoing\
+**Stack** Figma \uc0\u8594  React \'b7 Supabase \'b7 Netlify \'b7 Claude Code \'b7 Codex\
+**Frontend** La parte core (dashboard, KB editor, gestione propriet\'e0, abbonamenti, profilo) \'e8 stata progettata e prototipata da me in Figma e implementata da uno sviluppatore. Calendario prenotazioni, integrazioni PMS, documentazione integrata e i due chatbot (Alfred e Robin) li ho prototipati e vibecoded io stessa con Claude Code e Codex.\
+\
+---\
+\
+### The challenges\
+\
+**Progettare l'interfaccia per configurare un'AI, non un gestionale.**\
+La maggior parte dei tool B2B ha un utente che sa gi\'e0 cosa sta cercando. Qui l'utente deve *insegnare* qualcosa a un sistema \'97 definire cosa sa il chatbot, quanto sa, su quale propriet\'e0. La sfida era rendere questo processo comprensibile a chi non ha mai sentito la parola "knowledge base".\
+\
+**Literacy digitale molto eterogena.**\
+Il target va dal co-host professionale con 20 propriet\'e0 al gestore di un appartamento singolo che ha aperto l'account su suggerimento di un amico. L'interfaccia doveva funzionare per entrambi senza infantilizzare i primi n\'e9 sopraffare i secondi. Nessun onboarding a 12 step, nessun glossario tecnico.\
+\
+**Multi-property con abbonamenti separati.**\
+Ogni propriet\'e0 vive in modo indipendente: pu\'f2 avere un piano diverso, essere live o no, avere canali diversi attivi. Progettare una vista che rendesse questo parallelismo leggibile senza diventare una tabella di configurazione era non banale.\
+\
+**Tradurre le mie decisioni di design in React di produzione.**\
+Con la parte vibecoded ho chiuso il gap tra prototipo e implementazione in modo diretto \'97 ho usato Claude Code per scrivere componenti reali, non mockup. Questo ha cambiato il modo in cui progetto: penso gi\'e0 in termini di stato, non solo di schermata.\
+\
+---\
+\
+### Approach\
+\
+**Navigazione piatta per design.**\
+La scelta pi\'f9 consapevole nell'IA della platform \'e8 stata appiattire la navigazione. Cinque cluster principali \'97 Dashboard, Gestione propriet\'e0, Calendario, Integrazioni, Documentazione \'97 accessibili dal drawer laterale senza gerarchia di sotto-menu. Nessun percorso utente a tre livelli, nessun "Settings > Property > Channel > Advanced". La complessit\'e0 esiste, ma \'e8 gestita dentro ogni cluster, non attraverso la navigazione.\
+\
+Questa scelta non \'e8 estetica: deriva dall'utente. Un host che gestisce tre propriet\'e0 in parallelo non deve ricordarsi dove sono le cose. Deve poterle trovare la prima volta per istinto e la seconda per memoria muscolare.\
+\
+**KB editor: togliere l'ansia da blank page.**\
+Il momento pi\'f9 critico nell'onboarding di un host \'e8 quando gli chiedi di "inserire le informazioni sulla tua propriet\'e0". La risposta istintiva \'e8: *quali informazioni? tutte? quanto in dettaglio?*\
+\
+La soluzione \'e8 stata mappare a priori le categorie che un ospite ha statisticamente pi\'f9 bisogno di sapere \'97 Access & Check-In, House Rules, Amenities, Local Tips, Emergency Contacts \'97 e costruire per ciascuna dei library item preconfigurati con campi gi\'e0 nominati e descritti. L'host non scrive da zero: compila. "WiFi Network Name \'97 The name of the WiFi network guests should connect to." Sa cosa mettere, sa perch\'e9 serve.\
+\
+La forza del KB non \'e8 nella quantit\'e0 di informazioni inserite, ma nella granularit\'e0 degli item. Ogni campo \'e8 una molecola di informazione autonoma: Alfred non ha bisogno di paragrafi, ha bisogno di dati precisi e ben isolati. \'c8 il prompt di Alfred che fa il lavoro di contestualizzazione \'97 il KB fornisce i fatti, Alfred costruisce la risposta. Questo significa che anche un host che compila solo tre campi ottiene gi\'e0 un chatbot funzionante.\
+\
+Ogni library item \'e8 espandibile e modificabile. E c'\'e8 sempre la possibilit\'e0 di aggiungere campi custom per i dettagli che non rientrano nelle categorie standard \'97 inclusa, volendo, la logica di escalation specifica per quella propriet\'e0.\
+\
+**Vista propriet\'e0: tutto inline, zero drill-down.**\
+Dalla lista propriet\'e0 si fa tutto senza entrare in nessuna sotto-pagina: si apre il KB editor, si duplica la configurazione, si testa il chatbot, si gestisce l'attivazione su ogni canale. Le azioni sono icone inline su ogni riga. Il toggle "Vai live" \'e8 visibile e immediato. I canali supportati \'97 WhatsApp, Telegram, iframe per chi vuole integrare Alfred direttamente sul proprio sito \'97 sono visibili in un colpo d'occhio per ogni propriet\'e0.\
+\
+Per chi gestisce pi\'f9 strutture, questa \'e8 la differenza tra uno strumento e uno strumento usabile.\
+\
+**Abbonamenti per-property.**\
+Il modello di subscription riflette la realt\'e0 dell'hospitality multi-property: le strutture non sono tutte uguali, non hanno tutte lo stesso volume. Ogni propriet\'e0 ha il suo piano (Essential, Host\'85), il suo ciclo di fatturazione (monthly/yearly), la sua data di rinnovo. Il profilo host aggrega tutto in una vista tabellare unica, senza navigare propriet\'e0 per propriet\'e0.\
+\
+**Onboarding: il primo accesso obbliga a creare.**\
+In produzione, al primo accesso l'host \'e8 guidato a creare la sua prima propriet\'e0 prima di fare qualsiasi altra cosa. Non \'e8 una scelta arbitraria \'97 serve a garantire che il sistema abbia qualcosa su cui lavorare, ma serve anche come training: l'host impara il modello mentale della platform nel momento in cui la usa per la prima volta. Il funnel completo \'e8: sito \uc0\u8594  scelta del piano \u8594  iscrizione con 15 giorni di trial \u8594  primo accesso \u8594  creazione obbligata della prima propriet\'e0. \'c8 onboarding come UX, non come marketing.\
+\
+**Terminologia coerente con la docs.**\
+Tutti i termini usati nella platform \'97 library item, stay phase, knowledge base, hands-off number \'97 sono gli stessi usati nella documentazione, scelti dopo ricerca sul gergo di settore, confronto con operatori e analisi keyword con Semrush. L'obiettivo era che un host che leggeva la docs si ritrovasse nella platform senza traduzione mentale.\
+\
+---\
+\
+### The feature: testa Alfred prima di andare live\
+\
+Il momento pi\'f9 importante nella platform non \'e8 l'aggiunta di una propriet\'e0. \'c8 quando l'host apre il pannello di test del chatbot \'97 direttamente dalla lista propriet\'e0, senza uscire dalla dashboard \'97 e scrive una domanda come se fosse il suo ospite.\
+\
+Il pannello mostra Alfred che risponde usando esattamente ci\'f2 che l'host ha inserito nel KB. C'\'e8 un selettore di stay phase (pre-stay, stay, post-stay) perch\'e9 le domande cambiano in base al momento del soggiorno. L'host vede in tempo reale se Alfred sa come arrivare all'appartamento, qual \'e8 il codice del WiFi, a che ora deve fare il check-out.\
+\
+\'c8 il test di realt\'e0. Prima di dare il contatto Alfred agli ospiti, l'host pu\'f2 verificare che Alfred sia pronto. Questo cambia il rapporto con lo strumento: non \'e8 pi\'f9 un sistema opaco che "dovrebbe funzionare", \'e8 qualcosa che puoi interrogare tu stesso prima di metterlo in campo.\
+\
+Robin \'97 il chatbot di supporto alla platform, separato da Alfred \'97 funziona con la stessa logica ma in direzione opposta: risponde alle domande dell'host sulla piattaforma stessa, non sulle propriet\'e0. \'c8 l'assistente del gestore, non dell'ospite. Entrambi vibecoded con Claude Code.\
+\
+---\
+\
+### Build story\
+\
+Il perimetro di design e prototipazione \'e8 interamente mio \'97 da Figma alla consegna su Jira. Il core della platform \'e8 stato implementato dallo sviluppatore partendo dai miei prototipi.\
+\
+La seconda fase \'97 calendario prenotazioni, integrazioni PMS, documentazione integrata, Alfred e Robin \'97 l'ho costruita io direttamente in React con Claude Code e Codex. Il processo era iterativo: prototipo in Figma, poi vibecoding diretto sul componente, revisione visiva, aggiustamento nel sistema di design esistente. Non prompt-e-copia: un loop continuo di verifica e integrazione.\
+\
+Il componente di cui sono pi\'f9 orgogliosa tecnicamente \'e8 il test chatbot inline \'97 perch\'e9 richiede gestione dello stato tra la lista propriet\'e0 e il pannello di conversazione, ed \'e8 il punto in cui logica prodotto e implementazione si toccano pi\'f9 strettamente. \'c8 anche quello che nella demo funziona meglio.\
+\
+\'97\'97\
+\
+### Pain points\
+\
+La gestione multi-canale \'e8 ancora troppo implicita: i badge WhatsApp/Telegram/iframe sono visibili nella lista propriet\'e0 ma la configurazione avanzata per canale \'97 messaggi di benvenuto diversi, tono diverso \'97 \'e8 un'area che manca e che potrebbe fare la differenza per host con audience molto diverse su canali diversi.\
+\
+La logica di escalation \'97 quando Alfred cede la conversazione all'host, e con quale messaggio \'97 \'e8 definita nel prompt iniziale di Alfred ed \'e8 estendibile tramite library item custom. Funziona, ma richiede che l'host sappia che quella leva esiste e come usarla. Rendere questa configurazione pi\'f9 esplicita nell'interfaccia \'e8 qualcosa che migliorerei.\
+\
+---\
+\
+Questo \'e8 il report completo e definitivo. Confermami e procedo con l'implementazione nel sito.}

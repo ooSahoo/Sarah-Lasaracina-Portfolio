@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html, body { margin: 0; padding: 0; }
+  body { background:#FCFAF7; font-family:'Hanken Grotesk',-apple-system,system-ui,sans-serif; color:#15120F; -webkit-font-smoothing:antialiased; }
+  a { color: inherit; text-decoration: none; }
+  @keyframes blobA { 0%{transform:translate(0,0) scale(1);} 100%{transform:translate(6vw,4vh) scale(1.15);} }
+  @keyframes blobB { 0%{transform:translate(0,0) scale(1.1);} 100%{transform:translate(-5vw,5vh) scale(0.95);} }
+  @keyframes blobC { 0%{transform:translate(0,0) scale(0.95);} 100%{transform:translate(4vw,-5vh) scale(1.12);} }
+  @media print {
+    body { background:#fff; }
+    [data-print="hide"] { display:none !important; }
+    [data-sheet] { box-shadow:none !important; border:none !important; border-radius:0 !important; margin:0 !important; max-width:none !important; backdrop-filter:none !important; background:#fff !important; padding:0 !important; }
+    @page { margin:14mm; }
+  }
+</style>
+</helmet>
+
+<div style="position:relative; min-height:100vh; width:100%; overflow:hidden;">
+  <div data-print="hide">{{ background }}</div>
+  <main style="position:relative; z-index:1; max-width:920px; margin:0 auto; padding:24px 24px 80px;">
+
+    <nav data-print="hide" style="display:flex; align-items:center; justify-content:space-between; padding:8px 0 28px;">
+      <a href="index.dc.html" style="display:inline-flex; align-items:center; gap:8px; font-weight:600; font-size:15px;" style-hover="opacity:0.6;"><span>←</span> Back to portfolio</a>
+      <button onclick="{{ printCv }}" style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; border-radius:999px; background:#15120F; color:#FCFAF7; border:none; cursor:pointer; font-family:inherit; font-weight:700; font-size:15px;">Print / Save PDF <span>↓</span></button>
+    </nav>
+
+    <section data-print="hide" style="margin-bottom:24px; display:grid; grid-template-columns:170px 1fr; gap:34px; align-items:center; background:rgba(255,255,255,0.7); backdrop-filter:blur(12px); border:1.5px solid rgba(255,255,255,0.85); border-radius:24px; box-shadow:0 20px 60px rgba(70,50,100,0.12); padding:36px;">
+      <div style="width:170px; height:170px; border-radius:50%; overflow:hidden; position:relative; background:linear-gradient(135deg,#FFD9E8,#E0D1FF 45%,#C8E8FF); box-shadow:0 12px 30px rgba(60,40,90,0.16); border:4px solid #fff;">
+        <img src="assets/portrait.png" alt="Sarah Lasaracina" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+      </div>
+      <div>
+        <p style="margin:0 0 8px; font-weight:600; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:#6B6157;">The human behind the CV</p>
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(28px,4vw,40px); line-height:1; letter-spacing:-0.02em; margin:0 0 14px;">A bit about me</h2>
+        <p style="margin:0 0 20px; font-size:16px; line-height:1.6; color:#322C26; max-width:52ch;">I’m Sarah — born and based in Bari, on Italy’s sunny heel. I finished my studies and kicked off my career in France before going fully remote during the pandemic, which is probably why I’m happiest switching between languages, cultures and disciplines. I’m a proud cat mom 🐱, my idea of a perfect night out is karaoke or a musical show 🎤, and I only really discovered the joy of cooking when I went meat-free and started moving towards 🌱 — that’s where <a href="clueless-cooks.dc.html" style="border-bottom:1.5px solid rgba(21,18,15,0.3); font-weight:600;" style-hover="opacity:0.7;">the clueless cook</a> began. More than anything, in every corner of life I keep coming back to the same belief: how much communication and people’s experience matter to building a society that’s easier to live in and more equitable. Empathy, listening and stepping into other people’s shoes, paired with a genuine interest in technology and understanding innovation — I think that’s the real core of my profile, and it’s what professionally led me to product and UX the long way round, through words.</p>
+        <a href="#profile" style="display:inline-flex; align-items:center; gap:8px; padding:12px 24px; border-radius:999px; background:#15120F; color:#FCFAF7; font-weight:700; font-size:15px; white-space:nowrap;" style-hover="opacity:0.85;">Go to my professional CV <span>↓</span></a>
+      </div>
+    </section>
+
+    <article data-sheet="" style="background:rgba(255,255,255,0.8); backdrop-filter:blur(12px); border:1.5px solid rgba(255,255,255,0.85); border-radius:24px; box-shadow:0 20px 60px rgba(70,50,100,0.14); padding:48px;">
+
+      <header style="border-bottom:2px solid #15120F; padding-bottom:24px; margin-bottom:28px;">
+        <h1 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(36px,5.5vw,56px); line-height:0.98; letter-spacing:-0.03em; margin:0;">Sarah Lasaracina</h1>
+        <p style="margin:10px 0 0; font-weight:600; font-size:17px; color:#6B6157;">Technical writer · UX &amp; prompt design · Product design · Cybersecurity · Hospitality SaaS</p>
+        <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:16px; font-size:14px; font-weight:600; color:#322C26;">
+          <a href="mailto:sarahlasaracina@gmail.com">sarahlasaracina@gmail.com</a>
+          <span style="color:#C9BFB4;">·</span>
+          <span>Bari, Apulia, Italy</span>
+          <span style="color:#C9BFB4;">·</span>
+          <a href="https://www.linkedin.com/in/sarah-lasaracina-7a2235a7/?locale=en" target="_blank" style="border-bottom:1.5px solid rgba(21,18,15,0.3);">LinkedIn</a>
+        </div>
+      </header>
+
+      <div style="display:grid; grid-template-columns:1.7fr 1fr; gap:40px;">
+
+        <div>
+          <section id="profile" style="margin-bottom:30px; scroll-margin-top:24px;">
+            <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:14px; letter-spacing:0.08em; text-transform:uppercase; color:#6B6157; margin:0 0 12px;">Profile</h2>
+            <p style="margin:0; font-size:15px; line-height:1.65; color:#322C26;">I turn complex systems into experiences people can actually use. Nine years in technical communication taught me how people really read, click and get unstuck — and that curiosity pulled me into UX, where I now shape the whole experience, not just the words around it. I’ve worked across cybersecurity, healthcare, finance and hospitality AI, most recently designing the Alfred Hospitality AI platform end to end, from the first research to subscription flows and documentation. I love the messy middle where product, UX and content meet — and I lean on AI to get from idea to a working interface fast.</p>
+          </section>
+
+          <section>
+            <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:14px; letter-spacing:0.08em; text-transform:uppercase; color:#6B6157; margin:0 0 20px;">Experience</h2>
+
+            <div style="margin-bottom:30px;">
+              <div style="display:flex; align-items:center; gap:12px; margin:0 0 20px;">
+                <h3 style="display:inline-flex; align-items:center; gap:8px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:15px; letter-spacing:0.03em; text-transform:uppercase; white-space:nowrap; margin:0; padding:7px 15px; border-radius:999px; background:#E1EEFF; color:#15120F;"><span style="width:9px; height:9px; border-radius:50%; background:#5B97F0;"></span>UX / UI design</h3>
+                <span style="flex:1; height:3px; border-radius:3px; background:#5B97F0; opacity:0.35;"></span>
+              </div>
+              <div>
+                <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+                  <h4 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; margin:0;">UX Designer / Product Owner</h4>
+                  <span style="font-size:13px; font-weight:600; color:#6B6157; white-space:nowrap;">Oct 2023 – present</span>
+                </div>
+                <p style="margin:2px 0 8px; font-weight:600; font-size:15px; color:#5A8A6B;">Alfred Hospitality AI · Remote</p>
+                <ul style="margin:0; padding-left:18px; font-size:14px; line-height:1.6; color:#322C26;">
+                  <li>Designed and delivered the Alfred Hospitality AI platform end to end, owning UX across the full product lifecycle.</li>
+                  <li>Led research, user journeys, interaction and visual design; ran usability testing and turned insights into iterative improvements.</li>
+                  <li>Designed the financial &amp; subscription flows (payments and recurring), and authored the product &amp; technical documentation.</li>
+                </ul>
+                <a data-print="hide" href="alfred-platform.dc.html" style="display:inline-flex; align-items:center; gap:6px; margin-top:10px; font-weight:700; font-size:13px; color:#5B97F0;" style-hover="opacity:0.7;">See the case study <span>→</span></a>
+              </div>
+
+              <div style="margin-top:20px;">
+                <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+                  <h4 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; margin:0;">Documentation portal — UX, IA &amp; visual identity</h4>
+                  <span style="font-size:13px; font-weight:600; color:#6B6157; white-space:nowrap;">2023 – present</span>
+                </div>
+                <p style="margin:2px 0 8px; font-weight:600; font-size:15px; color:#5A8A6B;">Alfred Co.host · docs.alfredco.host</p>
+                <ul style="margin:0; padding-left:18px; font-size:14px; line-height:1.6; color:#322C26;">
+                  <li>Designed the information architecture on strict information mapping — each page answers a single job-to-be-done — with a deliberately flat, shallow hierarchy so no one gets lost three clicks deep.</li>
+                  <li>Built the portal’s visual identity and component system from scratch, with terminology mirroring the product UI exactly and held consistent across every translation.</li>
+                  <li>Authored and structured all content in a docs-as-code workflow, and wired in a custom GPT assistant so the docs can answer questions directly.</li>
+                </ul>
+                <a data-print="hide" href="alfred-docs.dc.html" style="display:inline-flex; align-items:center; gap:6px; margin-top:10px; font-weight:700; font-size:13px; color:#5B97F0;" style-hover="opacity:0.7;">See the case study <span>→</span></a>
+              </div>
+            </div>
+
+            <div style="margin-bottom:30px;">
+              <div style="display:flex; align-items:center; gap:12px; margin:0 0 20px;">
+                <h3 style="display:inline-flex; align-items:center; gap:8px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:15px; letter-spacing:0.03em; text-transform:uppercase; white-space:nowrap; margin:0; padding:7px 15px; border-radius:999px; background:#DCF4E6; color:#15120F;"><span style="width:9px; height:9px; border-radius:50%; background:#3FA86A;"></span>Technical writing &amp; communication</h3>
+                <span style="flex:1; height:3px; border-radius:3px; background:#3FA86A; opacity:0.32;"></span>
+              </div>
+
+              <div style="margin-bottom:20px;">
+                <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+                  <h4 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; margin:0;">Technical Writer</h4>
+                  <span style="font-size:13px; font-weight:600; color:#6B6157; white-space:nowrap;">Sep 2023 – present</span>
+                </div>
+                <p style="margin:2px 0 8px; font-weight:600; font-size:15px; color:#5A8A6B;">Transmit Security · Tel Aviv District (remote)</p>
+                <ul style="margin:0; padding-left:18px; font-size:14px; line-height:1.6; color:#322C26;">
+                  <li>Own developer documentation for the Mosaic identity platform — authentication &amp; identity orchestration, API integrations, SDKs (Web, iOS, Android) and security workflows.</li>
+                  <li>Document complex IAM capabilities: OAuth/OIDC, SSO, passkeys, risk-based auth, identity verification and journey-based orchestration.</li>
+                  <li>Work in a Docs-as-Code workflow (Markdown, Git/GitHub, reviews, automated publishing), hands-on with the product alongside Engineering, Product and UX.</li>
+                </ul>
+                <a data-print="hide" href="technical-communication.dc.html" style="display:inline-flex; align-items:center; gap:6px; margin-top:10px; font-weight:700; font-size:13px; color:#3FA86A;" style-hover="opacity:0.7;">See the case study <span>→</span></a>
+              </div>
+
+              <div style="margin-bottom:20px;">
+                <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+                  <h4 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; margin:0;">Senior Technical Writer</h4>
+                  <span style="font-size:13px; font-weight:600; color:#6B6157; white-space:nowrap;">Nov 2022 – May 2023</span>
+                </div>
+                <p style="margin:2px 0 8px; font-weight:600; font-size:15px; color:#5A8A6B;">Empathy.co · Remote</p>
+                <ul style="margin:0; padding-left:18px; font-size:14px; line-height:1.6; color:#322C26;">
+                  <li>Led functional and technical documentation for the Empathy Platform, plus internal backend API docs (Confluence, Backstage, Postman, Swagger).</li>
+                  <li>Ran docs projects in Agile, drove knowledge-management and style-guide adherence, and supported UI writing and UX design.</li>
+                </ul>
+              </div>
+
+              <div style="margin-bottom:20px;">
+                <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+                  <h4 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; margin:0;">Technical Communicator</h4>
+                  <span style="font-size:13px; font-weight:600; color:#6B6157; white-space:nowrap;">Jan 2021 – Nov 2022</span>
+                </div>
+                <p style="margin:2px 0 8px; font-weight:600; font-size:15px; color:#5A8A6B;">Writec · Remote</p>
+                <ul style="margin:0; padding-left:18px; font-size:14px; line-height:1.6; color:#322C26;">
+                  <li>Created functional, technical and API documentation for industrial automation, printing machinery and finance (MadCap Flare, GitHub).</li>
+                  <li>Consulted on knowledge management, information mapping, plain language, terminology and UX design support.</li>
+                </ul>
+              </div>
+
+              <div style="margin-bottom:20px;">
+                <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+                  <h4 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; margin:0;">Technical Writer</h4>
+                  <span style="font-size:13px; font-weight:600; color:#6B6157; white-space:nowrap;">Apr 2018 – Jan 2021</span>
+                </div>
+                <p style="margin:2px 0 8px; font-weight:600; font-size:15px; color:#5A8A6B;">Cerner Corporation · Paris, France</p>
+                <ul style="margin:0; padding-left:18px; font-size:14px; line-height:1.6; color:#322C26;">
+                  <li>Led user-centered documentation for PowerStay, a healthcare administrative &amp; financial data platform, and its Web Services.</li>
+                  <li>Owned information architecture and compliance; partnered with UX/UI designers on user-centered redesigns.</li>
+                </ul>
+              </div>
+
+              <div style="margin-bottom:20px;">
+                <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+                  <h4 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; margin:0;">Product Expert</h4>
+                  <span style="font-size:13px; font-weight:600; color:#6B6157; white-space:nowrap;">Sep 2017 – Apr 2018</span>
+                </div>
+                <p style="margin:2px 0 8px; font-weight:600; font-size:15px; color:#5A8A6B;">Dimelo · Paris, France</p>
+                <ul style="margin:0; padding-left:18px; font-size:14px; line-height:1.6; color:#322C26;">
+                  <li>Wrote and translated (EN↔FR) installation and user documentation, Help Center articles, training materials and newsletters.</li>
+                  <li>Formalized client requests on B2C CRM SaaS platforms (Dimelo Digital &amp; Communities) and supported R&amp;D on new features.</li>
+                </ul>
+              </div>
+
+              <div>
+                <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+                  <h4 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; margin:0;">Translation &amp; proofreading</h4>
+                  <span style="font-size:13px; font-weight:600; color:#6B6157; white-space:nowrap;">2013 – 2016</span>
+                </div>
+                <p style="margin:2px 0 8px; font-weight:600; font-size:15px; color:#5A8A6B;">Discovery Publishers · New York Habitat</p>
+                <ul style="margin:0; padding-left:18px; font-size:14px; line-height:1.6; color:#322C26;">
+                  <li>Translated and proofread books, articles and listings EN/FR → IT, with terminology management and cultural/historical accuracy.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <div style="display:flex; align-items:center; gap:12px; margin:0 0 20px;">
+                <h3 style="display:inline-flex; align-items:center; gap:8px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:15px; letter-spacing:0.03em; text-transform:uppercase; white-space:nowrap; margin:0; padding:7px 15px; border-radius:999px; background:#FFE0EC; color:#15120F;"><span style="width:9px; height:9px; border-radius:50%; background:#F0689A;"></span>Product management</h3>
+                <span style="flex:1; height:3px; border-radius:3px; background:#F0689A; opacity:0.35;"></span>
+              </div>
+
+              <div style="margin-bottom:20px;">
+                <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+                  <h4 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; margin:0;">Founder · CIO · Product Manager · Scrum Master</h4>
+                  <span style="font-size:13px; font-weight:600; color:#6B6157; white-space:nowrap;">Oct 2023 – present</span>
+                </div>
+                <p style="margin:2px 0 8px; font-weight:600; font-size:15px; color:#5A8A6B;">Botique.me · Estonia</p>
+                <ul style="margin:0; padding-left:18px; font-size:14px; line-height:1.6; color:#322C26;">
+                  <li>Coordinate Scrum events, facilitating effective communication and collaboration within the team.</li>
+                  <li>Develop and define the product roadmap, aligning it with the company’s strategic vision.</li>
+                  <li>Establish and refine operational processes to improve efficiency and streamline workflows.</li>
+                  <li>Lead the definition of comprehensive product requirements, aligning business goals with user needs.</li>
+                  <li>Take a hands-on approach to design decisions that shape the overall user experience.</li>
+                  <li>Manage documentation and craft UI copy for a cohesive, user-friendly product interface.</li>
+                  <li>Build the startup’s social-media presence.</li>
+                </ul>
+              </div>
+
+              <div>
+                <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+                  <h4 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; margin:0;">Project Management Intern</h4>
+                  <span style="font-size:13px; font-weight:600; color:#6B6157; white-space:nowrap;">Sep 2016 – Sep 2017</span>
+                </div>
+                <p style="margin:2px 0 8px; font-weight:600; font-size:15px; color:#5A8A6B;">SFR Business · Saint-Denis, France</p>
+                <ul style="margin:0; padding-left:18px; font-size:14px; line-height:1.6; color:#322C26;">
+                  <li>Managed and optimized the documentation archive for B2B offers (IoT, mobile, landline, convergent telephony) used by customer service.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <aside>
+          <section style="margin-bottom:26px;">
+            <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:14px; letter-spacing:0.08em; text-transform:uppercase; color:#6B6157; margin:0 0 12px;">Top skills</h2>
+            <div style="display:flex; flex-wrap:wrap; gap:7px;">
+              <span style="padding:6px 12px; border-radius:999px; background:#EFE6FF; font-weight:600; font-size:13px;">Technical writing</span>
+              <span style="padding:6px 12px; border-radius:999px; background:#E6F0FF; font-weight:600; font-size:13px;">UX design</span>
+              <span style="padding:6px 12px; border-radius:999px; background:#E6FBEF; font-weight:600; font-size:13px;">Conversation &amp; prompt design</span>
+              <span style="padding:6px 12px; border-radius:999px; background:#FFF3D6; font-weight:600; font-size:13px;">Content strategy</span>
+              <span style="padding:6px 12px; border-radius:999px; background:#FFE6EF; font-weight:600; font-size:13px;">Productization</span>
+              <span style="padding:6px 12px; border-radius:999px; background:#EFE6FF; font-weight:600; font-size:13px;">Information architecture</span>
+              <span style="padding:6px 12px; border-radius:999px; background:#E6F0FF; font-weight:600; font-size:13px;">Docs-as-Code (Git)</span>
+              <span style="padding:6px 12px; border-radius:999px; background:#E6FBEF; font-weight:600; font-size:13px;">Agile project management</span>
+              <span style="padding:6px 12px; border-radius:999px; background:#FFF3D6; font-weight:600; font-size:13px;">Usability testing</span>
+            </div>
+          </section>
+
+          <section style="margin-bottom:26px;">
+            <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:14px; letter-spacing:0.08em; text-transform:uppercase; color:#6B6157; margin:0 0 12px;">Certifications</h2>
+            <ul style="margin:0; padding-left:18px; font-size:14px; line-height:1.7; color:#322C26;">
+              <li><strong>Opquast</strong> — Maîtrise de la qualité en projet Web</li>
+              <li><strong>Aulab</strong> — Conversation design &amp; prompt engineering</li>
+            </ul>
+          </section>
+
+          <section style="margin-bottom:26px;">
+            <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:14px; letter-spacing:0.08em; text-transform:uppercase; color:#6B6157; margin:0 0 12px;">Languages</h2>
+            <ul style="margin:0; padding-left:18px; font-size:14px; line-height:1.7; color:#322C26;">
+              <li>Italian — native / bilingual</li>
+              <li>French — full professional</li>
+              <li>English — full professional</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:14px; letter-spacing:0.08em; text-transform:uppercase; color:#6B6157; margin:0 0 12px;">Education</h2>
+            <div style="font-size:14px; line-height:1.5; color:#322C26;">
+              <p style="margin:0 0 12px;"><strong>Master 2 — Conception de Documentation Multilingue Multimédia</strong><br>Communication technique · Université Paris Diderot · 2016–2017</p>
+              <p style="margin:0 0 12px;"><strong>Master 1 — Industrie de la Langue et Traduction Spécialisée</strong><br>Université Paris Diderot · 2015–2016</p>
+              <p style="margin:0;"><strong>Bachelor’s — Intercultural Mediation</strong><br>Università degli Studi di Bari · 2009–2013</p>
+            </div>
+          </section>
+        </aside>
+
+      </div>
+    </article>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;palette&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Rainbow&quot;,&quot;Sunset&quot;,&quot;Cotton candy&quot;,&quot;Citrus&quot;,&quot;Ocean&quot;],&quot;default&quot;:&quot;Rainbow&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;animateBackground&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const palettes = {
+      Rainbow: ['#FFC2D1','#FFE0A8','#FFF6A8','#BFF0C9','#C3DBFF','#DCC6FF'],
+      Sunset: ['#FFD0B8','#FFB8C6','#FFC8A8','#FFE0A8','#FFB0A0','#FFD6C0'],
+      'Cotton candy': ['#FFD1EC','#E3D1FF','#D1E6FF','#FFE0F0','#E8D1FF','#D6F0FF'],
+      Citrus: ['#FFF3A8','#FFD9A8','#D8F5A8','#FFE8A8','#C8F0B0','#FFF0B8'],
+      Ocean: ['#BFF0E8','#BFE0FF','#C8D8FF','#BFF3F0','#D0F0E0','#CFE8FF'],
+    };
+    const name = this.props.palette ?? 'Rainbow';
+    const colors = palettes[name] || palettes.Rainbow;
+    const animate = this.props.animateBackground ?? true;
+    const layout = [
+      { top: '-12%', left: '-6%', size: '46vw', anim: 'blobA', dur: '24s' },
+      { top: '6%', left: '56%', size: '42vw', anim: 'blobB', dur: '30s' },
+      { top: '42%', left: '-12%', size: '40vw', anim: 'blobC', dur: '27s' },
+      { top: '54%', left: '46%', size: '48vw', anim: 'blobA', dur: '33s' },
+      { top: '16%', left: '24%', size: '34vw', anim: 'blobB', dur: '21s' },
+      { top: '74%', left: '14%', size: '38vw', anim: 'blobC', dur: '29s' },
+    ];
+    const blobs = layout.map((b, i) => React.createElement('div', {
+      key: i,
+      style: { position: 'absolute', top: b.top, left: b.left, width: b.size, height: b.size,
+        background: colors[i % colors.length], borderRadius: '50%', filter: 'blur(70px)',
+        opacity: 0.62, mixBlendMode: 'multiply',
+        animation: animate ? `${b.anim} ${b.dur} ease-in-out infinite alternate` : 'none' },
+    }));
+    const background = React.createElement('div', {
+      style: { position: 'fixed', inset: 0, zIndex: 0, overflow: 'hidden', pointerEvents: 'none' },
+    }, ...blobs);
+    return { background, printCv: () => window.print() };
+  }
+}
+</script>
+</body>
+</html>

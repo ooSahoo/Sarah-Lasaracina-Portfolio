@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=Caveat:wght@600;700&amp;family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Pacifico&amp;display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background:#FCFAF7; font-family:'Hanken Grotesk',-apple-system,system-ui,sans-serif; color:#15120F; -webkit-font-smoothing:antialiased; }
+  a { color: inherit; text-decoration: none; }
+  @keyframes blobA { 0%{transform:translate(0,0) scale(1);} 100%{transform:translate(6vw,4vh) scale(1.15);} }
+  @keyframes blobB { 0%{transform:translate(0,0) scale(1.1);} 100%{transform:translate(-5vw,5vh) scale(0.95);} }
+  @keyframes blobC { 0%{transform:translate(0,0) scale(0.95);} 100%{transform:translate(4vw,-5vh) scale(1.12);} }
+  @keyframes fadeUp { 0%{opacity:0; transform:translateY(18px);} 100%{opacity:1; transform:translateY(0);} }
+  @keyframes wobble { 0%{transform:rotate(-2deg);} 100%{transform:rotate(2deg);} }
+  @keyframes popIn { 0%{opacity:0; transform:translateY(16px) scale(0.96);} 100%{opacity:1; transform:translateY(0) scale(1);} }
+  @keyframes tabGlow { 0%,100%{box-shadow:0 10px 30px rgba(120,50,80,0.12);} 50%{box-shadow:0 14px 46px rgba(192,83,42,0.5);} }
+  @keyframes lensPing { 0%{transform:scale(1); opacity:0.55;} 100%{transform:scale(2.6); opacity:0;} }
+  @keyframes arrowBob { 0%,100%{transform:translateY(0);} 50%{transform:translateY(5px);} }
+  @keyframes badgeFloat { 0%{transform:translateY(0) rotate(-2.5deg);} 100%{transform:translateY(-10px) rotate(2.5deg);} }
+  [data-subnav]::-webkit-scrollbar { display:none; }
+</style>
+</helmet>
+
+<div style="position:relative; min-height:100vh; width:100%; overflow:hidden;">
+  {{ background }}
+  <main style="position:relative; z-index:1; max-width:900px; margin:0 auto; padding:28px 32px 90px;">
+
+    <nav style="display:flex; align-items:center; justify-content:space-between; padding:8px 0 56px;">
+      <a href="index.dc.html" style="display:inline-flex; align-items:center; gap:8px; font-weight:600; font-size:15px;" style-hover="opacity:0.6;"><span>←</span> Back</a>
+      <a href="cv.dc.html" style="font-weight:600; font-size:15px; border-bottom:1.5px solid rgba(21,18,15,0.25);">Full CV</a>
+    </nav>
+
+    <header style="animation:fadeUp 0.6s cubic-bezier(0.2,0.8,0.2,1) both; display:flex; align-items:flex-start; gap:36px; flex-wrap:wrap;">
+      <div style="flex:1 1 360px; min-width:min(100%,320px);">
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:18px;">
+        <span style="display:inline-block; width:14px; height:14px; border-radius:50%; background:#FF9EBB; animation:wobble 1.6s ease-in-out infinite alternate;"></span>
+        <span style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:15px; letter-spacing:0.04em; text-transform:uppercase; color:#6B6157;">04 · Just for fun</span>
+      </div>
+      <h1 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(40px,8vw,90px); line-height:0.92; letter-spacing:-0.03em; margin:0; max-width:14ch; text-wrap:balance;">Clueless Cooks</h1>
+      <p style="margin:24px 0 0; max-width:660px; font-size:20px; line-height:1.6; color:#322C26; text-wrap:pretty;">A personal recipe blog with a chip on its shoulder — and a case study in treating dinner like documentation. The payoff says it all: <em style="font-style:italic;">if it’s listed, it’s tasted.</em></p>
+
+      <div style="margin-top:30px; display:flex; flex-wrap:wrap; gap:10px;">
+        <span style="display:inline-flex; align-items:center; gap:8px; padding:8px 16px; border-radius:999px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85); font-weight:600; font-size:14px;"><span style="opacity:0.5;">Role</span> Concept, UX, content &amp; voice</span>
+        <span style="display:inline-flex; align-items:center; gap:8px; padding:8px 16px; border-radius:999px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85); font-weight:600; font-size:14px;"><span style="opacity:0.5;">Type</span> Personal blog → future brand</span>
+        <span style="display:inline-flex; align-items:center; gap:8px; padding:8px 16px; border-radius:999px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85); font-weight:600; font-size:14px;"><span style="opacity:0.5;">Languages</span> IT · EN · FR</span>
+      </div>
+      </div>
+      <a href="https://www.ricetteperpippe.com" target="_blank" rel="noopener" title="ricetteperpippe.com" style="flex:none; align-self:center; margin:0 auto;">
+        <img src="assets/rpp-logo.png" alt="Ricette per Pippe — the apron-cat badge" style="display:block; width:clamp(140px,20vw,190px); height:auto; filter:drop-shadow(0 14px 30px rgba(192,83,42,0.22)); animation:badgeFloat 4.5s ease-in-out infinite alternate;">
+      </a>
+    </header>
+
+    <!-- SHOWCASE -->
+    <section data-reveal="" style="margin-top:48px;">
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:24px; letter-spacing:-0.02em; margin:0 0 18px;">Taste the blog</h2>
+      <div style="border-radius:18px; overflow:hidden; border:1.5px solid rgba(21,18,15,0.12); background:#fff; box-shadow:0 16px 50px rgba(120,50,80,0.16);">
+        <div style="display:flex; align-items:center; gap:8px; padding:11px 16px; background:#F3EEE8; border-bottom:1px solid rgba(21,18,15,0.08);">
+          <span style="width:11px; height:11px; border-radius:50%; background:#FF7B72;"></span>
+          <span style="width:11px; height:11px; border-radius:50%; background:#FFCB5C;"></span>
+          <span style="width:11px; height:11px; border-radius:50%; background:#7FD68A;"></span>
+          <span style="margin-left:10px; flex:1; max-width:340px; background:#fff; border-radius:999px; padding:5px 14px; font-family:'Bricolage Grotesque',monospace; font-size:13px; color:#9A8F84;">ricetteperpippe.com</span>
+        </div>
+        <div style="position:relative; background:#FFF9EF;">
+          <iframe src="https://www.ricetteperpippe.com" title="ricetteperpippe.com" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="display:block; width:100%; height:460px; border:0; background:#FFF9EF;"></iframe>
+        </div>
+      </div>
+      <a href="https://www.ricetteperpippe.com" target="_blank" rel="noopener" style="margin-top:18px; display:inline-flex; align-items:center; gap:8px; padding:13px 26px; border-radius:999px; background:#15120F; color:#FCFAF7; font-weight:700; font-size:16px;" style-hover="opacity:0.85;">Open ricetteperpippe.com <span>↗</span></a>
+    </section>
+
+    <!-- TAB BAR -->
+    <div style="margin-top:46px; display:flex; align-items:center; gap:12px;">
+      <span style="position:relative; display:inline-flex; width:11px; height:11px;">
+        <span style="position:absolute; inset:0; border-radius:50%; background:#FF9EBB; animation:lensPing 1.8s ease-out infinite;"></span>
+        <span style="position:relative; width:11px; height:11px; border-radius:50%; background:#C0532A;"></span>
+      </span>
+      <p style="margin:0; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(20px,3vw,26px); letter-spacing:-0.02em;">Two universes of analysis</p>
+    </div>
+    <p style="margin:6px 0 18px; font-size:15px; color:#6B6157;">Same blog, two ways to read it. <strong style="color:#15120F;">Pick your lens.</strong> <span style="display:inline-block; animation:arrowBob 1.4s ease-in-out infinite; color:#C0532A;">↓</span></p>
+
+    <div data-tabbar="" style="position:sticky; top:14px; z-index:5; display:inline-flex; gap:0; padding:7px; border-radius:999px; background:rgba(255,255,255,0.78); backdrop-filter:blur(14px); border:1.5px solid rgba(255,255,255,0.9); box-shadow:0 10px 30px rgba(120,50,80,0.12); animation:popIn 0.55s cubic-bezier(0.2,0.8,0.2,1) both, tabGlow 2.2s ease-in-out 0.7s 3;">
+      <span data-tab-indicator="" style="position:absolute; top:7px; bottom:7px; left:7px; width:0; border-radius:999px; background:#15120F; transition:transform 0.34s cubic-bezier(0.34,1.3,0.5,1), width 0.34s cubic-bezier(0.34,1.3,0.5,1); z-index:0;"></span>
+      <button data-tab="ux" style="all:unset; position:relative; z-index:1; cursor:pointer; padding:13px 26px; border-radius:999px; text-align:center; transition:color 0.2s ease;">
+        <span style="display:block; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:17px; letter-spacing:-0.01em;">UX &amp; brand</span>
+        <span data-tab-sub="" style="display:block; font-size:12px; font-weight:500; margin-top:2px;">the human side</span>
+      </button>
+      <button data-tab="tech" style="all:unset; position:relative; z-index:1; cursor:pointer; padding:13px 26px; border-radius:999px; text-align:center; transition:color 0.2s ease;">
+        <span style="display:block; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:17px; letter-spacing:-0.01em;">Tech &amp; engineering</span>
+        <span data-tab-sub="" style="display:block; font-size:12px; font-weight:500; margin-top:2px;">the machine side</span>
+      </button>
+    </div>
+
+    <div data-panel="ux">
+
+    <!-- UX SUB-NAV -->
+    <nav data-subnav="" style="position:sticky; top:88px; z-index:4; margin-top:30px; display:flex; gap:4px; padding:6px; background:rgba(252,250,247,0.72); backdrop-filter:blur(14px); border:1.5px solid rgba(255,255,255,0.9); border-radius:999px; box-shadow:0 6px 22px rgba(120,50,80,0.1);">
+      <button data-jump="ux-names" style="cursor:pointer; white-space:nowrap; flex:1 1 0; text-align:center; padding:9px 6px; border:none; background:transparent; -webkit-appearance:none; appearance:none; border-radius:999px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:14px; color:#6B6157;">The names</button>
+      <button data-jump="ux-story" style="cursor:pointer; white-space:nowrap; flex:1 1 0; text-align:center; padding:9px 6px; border:none; background:transparent; -webkit-appearance:none; appearance:none; border-radius:999px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:14px; color:#6B6157;">The story</button>
+      <button data-jump="ux-decisions" style="cursor:pointer; white-space:nowrap; flex:1 1 0; text-align:center; padding:9px 6px; border:none; background:transparent; -webkit-appearance:none; appearance:none; border-radius:999px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:14px; color:#6B6157;">Decisions</button>
+      <button data-jump="ux-color" style="cursor:pointer; white-space:nowrap; flex:1 1 0; text-align:center; padding:9px 6px; border:none; background:transparent; -webkit-appearance:none; appearance:none; border-radius:999px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:14px; color:#6B6157;">Color</button>
+      <button data-jump="ux-type" style="cursor:pointer; white-space:nowrap; flex:1 1 0; text-align:center; padding:9px 6px; border:none; background:transparent; -webkit-appearance:none; appearance:none; border-radius:999px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:14px; color:#6B6157;">Type</button>
+      <button data-jump="ux-roadmap" style="cursor:pointer; white-space:nowrap; flex:1 1 0; text-align:center; padding:9px 6px; border:none; background:transparent; -webkit-appearance:none; appearance:none; border-radius:999px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:14px; color:#6B6157;">Roadmap</button>
+    </nav>
+
+    <!-- TRILINGUAL NAME PANEL -->
+    <section id="ux-names" data-reveal="" style="scroll-margin-top:150px; margin-top:36px; padding:36px; border-radius:24px; background:rgba(255,255,255,0.62); backdrop-filter:blur(10px); border:1.5px solid rgba(255,255,255,0.82); box-shadow:0 12px 40px rgba(120,50,80,0.1);">
+      <p style="margin:0 0 22px; font-weight:600; font-size:14px; letter-spacing:0.06em; text-transform:uppercase; color:#6B6157;">One blog, three names — all of them rude about my cooking</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px;">
+        <div style="padding:20px; border-radius:18px; background:linear-gradient(135deg,#FFE9C9,#FFF6E3);">
+          <p style="margin:0; font-size:13px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:#C0532A;">IT</p>
+          <p style="margin:8px 0 6px; font-family:'Caveat',cursive; font-weight:700; font-size:34px; line-height:1; color:#15120F;">Ricette per Pippe</p>
+          <p style="margin:0; font-size:14px; line-height:1.45; color:#6B6157;">Affectionate Italian slang for people who are hopeless at the stove.</p>
+        </div>
+        <div style="padding:20px; border-radius:18px; background:linear-gradient(135deg,#D6F0DE,#EAF8E8);">
+          <p style="margin:0; font-size:13px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:#2E7D52;">EN</p>
+          <p style="margin:8px 0 6px; font-family:'Caveat',cursive; font-weight:700; font-size:34px; line-height:1; color:#15120F;">Clueless Cooks</p>
+          <p style="margin:0; font-size:14px; line-height:1.45; color:#6B6157;">
+
+
+
+</p><p class="p1">The English version that politely admits we have no idea what we’re doing.</p><p></p>
+        </div>
+        <div style="padding:20px; border-radius:18px; background:linear-gradient(135deg,#E9D6FF,#F3EAFF);">
+          <p style="margin:0; font-size:13px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:#7A52C0;">FR</p>
+          <p style="margin:8px 0 6px; font-family:'Caveat',cursive; font-weight:700; font-size:34px; line-height:1; color:#15120F;">Recettes pour quiches</p>
+          <p style="margin:0; font-size:14px; line-height:1.45; color:#6B6157;">In French, <em>une quiche</em> is both a tart and a hopeless beginner. Couldn’t resist.</p>
+        </div>
+      </div>
+      <p style="margin:22px 0 0; font-size:15px; line-height:1.6; color:#322C26;">Right now the three languages are really just for friends — I have Italian-, French- and English-speaking ones, and it was nice to drop them the blog whenever a recipe came up in conversation. But the same joke landing in every language is also exactly the consistency a brand needs later: the voice is already locked.</p>
+    </section>
+
+    <!-- THE STORY -->
+    <section id="ux-story" data-reveal="" style="scroll-margin-top:150px; margin-top:80px;">
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(28px,4.5vw,44px); letter-spacing:-0.025em; margin:0 0 8px;">The user persona was, embarrassingly, me</h2>
+      <p style="margin:0 0 26px; font-size:16px; font-weight:600; color:#6B6157;">Every design decision here traces back to a real moment of me standing in my kitchen, defeated.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
+        <div style="padding:26px; border-radius:20px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85); box-shadow:0 8px 30px rgba(120,50,80,0.08);">
+          <p style="margin:0 0 10px; font-family:'Caveat',cursive; font-weight:700; font-size:26px; color:#C0532A;">The crème caramel incident</p>
+          <p style="margin:0; font-size:15px; line-height:1.6; color:#322C26;">
+
+
+
+</p><p class="p1">Halfway through an online recipe, I found out — hidden in the final notes — that I needed a specific little pan I didn’t own. I’d already started. So there I was: caramel setting, dignity melting, and seven hours of failures later.</p><p></p>
+        </div>
+        <div style="padding:26px; border-radius:20px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85); box-shadow:0 8px 30px rgba(120,50,80,0.08);">
+          <p style="margin:0 0 10px; font-family:'Caveat',cursive; font-weight:700; font-size:26px; color:#2E7D52;">The endless scroll</p>
+          <p style="margin:0; font-size:15px; line-height:1.6; color:#322C26;">I hated scrolling back up to the ingredients at every single step — then scrolling down and completely losing which step I was on. Hands dirty, place lost, soup over-salted.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:26px; padding:30px 32px; border-radius:20px; background:#15120F; color:#FCFAF7; box-shadow:0 16px 44px rgba(21,18,15,0.22);">
+        <p style="margin:0; font-size:clamp(20px,3vw,28px); line-height:1.4; font-weight:600; letter-spacing:-0.015em; text-wrap:pretty;">So I did the only reasonable thing: I treated the recipe like a piece of technical documentation. Because <span style="color:#FFD08A;">a recipe is the oldest form of technical writing there is</span> — a sequence of steps, with prerequisites, that has to produce the same result in anyone’s kitchen.</p>
+        <p style="margin:18px 0 0; font-size:15px; color:#B8B2AC;">Nine years of technical communication, pointed squarely at dinner.</p>
+      </div>
+    </section>
+
+    <!-- DESIGN DECISIONS -->
+    <section id="ux-decisions" data-reveal="" style="scroll-margin-top:150px; margin-top:80px;">
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(28px,4.5vw,44px); letter-spacing:-0.025em; margin:0 0 26px;">Four decisions, four frustrations solved</h2>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
+
+        <div style="padding:26px; border-radius:20px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85); box-shadow:0 8px 30px rgba(120,50,80,0.08);">
+          <p style="margin:0 0 6px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:15px; color:#6B6157;">01</p>
+          <h3 style="margin:0 0 8px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:21px; letter-spacing:-0.015em;">Everything you need, before you start</h3>
+          <p style="margin:0; font-size:15px; line-height:1.55; color:#322C26;">A Quick Info box up top — servings, prep, cook, <strong>and tools</strong> — so the special pan never ambushes you on step seven. No prerequisite hides in the footnotes.</p>
+        </div>
+
+        <div style="padding:26px; border-radius:20px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85); box-shadow:0 8px 30px rgba(120,50,80,0.08);">
+          <p style="margin:0 0 6px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:15px; color:#6B6157;">02</p>
+          <h3 style="margin:0 0 8px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:21px; letter-spacing:-0.015em;">Color as a language</h3>
+          <p style="margin:0; font-size:15px; line-height:1.55; color:#322C26;">Inside each step, <span style="color:#C0532A; font-weight:600; border-bottom:1.5px solid rgba(192,83,42,0.4);">orange marks ingredients &amp; amounts</span> and <span style="color:#2E7D52; font-weight:600;">green marks technique &amp; warnings</span>. The quantity lives <em>in</em> the step, so you stop scrolling up.</p>
+        </div>
+
+        <div style="padding:26px; border-radius:20px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85); box-shadow:0 8px 30px rgba(120,50,80,0.08);">
+          <p style="margin:0 0 6px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:15px; color:#6B6157;">03</p>
+          <h3 style="margin:0 0 8px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:21px; letter-spacing:-0.015em;">A live, tap-to-check list</h3>
+          <p style="margin:0; font-size:15px; line-height:1.55; color:#322C26;">Every step has a checkbox. One messy-thumbed tap marks it done, so you never lose your place again. The page becomes a checklist that survives interruptions.</p>
+        </div>
+
+        <div style="padding:26px; border-radius:20px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85); box-shadow:0 8px 30px rgba(120,50,80,0.08);">
+          <p style="margin:0 0 6px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:15px; color:#6B6157;">04</p>
+          <h3 style="margin:0 0 8px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:21px; letter-spacing:-0.015em;">Know where you are</h3>
+          <p style="margin:0; font-size:15px; line-height:1.55; color:#322C26;">Category pills sit at the top of every recipe, the active one filled in. Arrive from Google, see exactly where you landed, and step sideways into similar recipes without going back.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- COLOR RATIONALE -->
+    <section id="ux-color" data-reveal="" style="scroll-margin-top:150px; margin-top:40px; padding:32px 34px; border-radius:24px; background:rgba(255,255,255,0.62); backdrop-filter:blur(10px); border:1.5px solid rgba(255,255,255,0.82); box-shadow:0 12px 40px rgba(120,50,80,0.1);">
+      <p style="margin:0 0 6px; font-weight:600; font-size:14px; letter-spacing:0.06em; text-transform:uppercase; color:#6B6157;">Why orange &amp; green</p>
+      <p style="margin:0 0 24px; max-width:640px; font-size:18px; line-height:1.5; color:#322C26; text-wrap:pretty;">A recipe step holds two kinds of information &mdash; <strong>what</strong> goes in and <strong>how</strong> you handle it. Two meanings, two colors. Learn the code once and you stop re-reading: it&rsquo;s syntax highlighting for cooking, where color is a category, never decoration.</p>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+        <div style="padding:20px 22px; border-radius:16px; background:#FFF7EF; border:1.5px solid rgba(192,83,42,0.16);">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+            <span style="flex:none; width:16px; height:16px; border-radius:5px; background:#C0532A;"></span>
+            <strong style="font-family:'Bricolage Grotesque',sans-serif; font-size:17px; color:#C0532A;">Orange &middot; the matter</strong>
+          </div>
+          <p style="margin:0; font-size:15px; line-height:1.5; color:#322C26;">Ingredients, amounts and the tools you need up front. Warm, like cooked food &mdash; it reads as <em>stuff you touch</em>.</p>
+        </div>
+        <div style="padding:20px 22px; border-radius:16px; background:#EDF7F0; border:1.5px solid rgba(46,125,82,0.16);">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+            <span style="flex:none; width:16px; height:16px; border-radius:5px; background:#2E7D52;"></span>
+            <strong style="font-family:'Bricolage Grotesque',sans-serif; font-size:17px; color:#2E7D52;">Green &middot; the action</strong>
+          </div>
+          <p style="margin:0; font-size:15px; line-height:1.5; color:#322C26;">Technique and warnings. Green is the universal <em>go / careful</em> signal &mdash; it reads as <em>what to do, and what not to</em>.</p>
+        </div>
+      </div>
+
+      <!-- live example -->
+      <div style="margin-top:14px; padding:20px 22px; border-radius:16px; background:#FBF7F1;">
+        <p style="margin:0 0 8px; font-size:12px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; color:#9A8F84;">The code, in one step</p>
+        <p style="margin:0; font-size:16px; line-height:1.65; color:#322C26;">Add <span style="color:#C0532A; font-weight:600; border-bottom:1.5px solid rgba(192,83,42,0.4);">160 g Carnaroli rice</span> to the dry pan and toast for 2 minutes. <span style="color:#2E7D52; font-weight:600;">Never let it dry out completely</span> &mdash; it&rsquo;ll catch and turn bitter.</p>
+      </div>
+
+      <div style="margin-top:18px; display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+        <p style="margin:0; font-size:15px; line-height:1.55; color:#6B6157;"><strong style="color:#322C26;">Discipline.</strong> On a calm cream canvas, only two accents carry meaning. No third &ldquo;pretty&rdquo; color to dilute the code &mdash; every hue is a token, and tokens cost attention.</p>
+        <p style="margin:0; font-size:15px; line-height:1.55; color:#6B6157;"><strong style="color:#322C26;">On brand.</strong> Both are lifted straight from the apron-cat badge &mdash; coral-orange and sage-green &mdash; so reading a recipe and recognizing the blog run on one palette.</p>
+      </div>
+    </section>
+
+    <!-- TYPE RATIONALE -->
+    <section id="ux-type" data-reveal="" style="scroll-margin-top:150px; margin-top:40px; padding:32px 34px; border-radius:24px; background:rgba(255,255,255,0.62); backdrop-filter:blur(10px); border:1.5px solid rgba(255,255,255,0.82); box-shadow:0 12px 40px rgba(120,50,80,0.1);">
+      <p style="margin:0 0 6px; font-weight:600; font-size:14px; letter-spacing:0.06em; text-transform:uppercase; color:#6B6157;">Type, and why</p>
+      <p style="margin:0 0 24px; max-width:640px; font-size:18px; line-height:1.5; color:#322C26; text-wrap:pretty;">Three roles, three voices: a face that signs the brand, a face you actually read, and a face that disappears. The personality lives in the headings &mdash; everything else gets progressively quieter so the recipe stays legible.</p>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px;">
+
+        <div style="padding:22px; border-radius:18px; background:#fff; border:1.5px solid rgba(21,18,15,0.08);">
+          <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:14px;">
+            <span style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:14px; color:#C0532A;">Headings</span>
+            <code style="font-family:'Bricolage Grotesque',monospace; font-size:12px; color:#9A8F84;">--font-heading</code>
+          </div>
+          <p style="margin:0 0 12px; font-family:'Pacifico',cursive; font-size:34px; line-height:1.05; color:#15120F;">Clueless Cooks</p>
+          <p style="margin:0 0 4px; font-weight:700; font-size:15px; color:#322C26;">Pacifico</p>
+          <p style="margin:0; font-size:14px; line-height:1.5; color:#6B6157;">Playful, handmade, a personal signature &mdash; the right tone for a recipe blog that refuses to take itself seriously.</p>
+        </div>
+
+        <div style="padding:22px; border-radius:18px; background:#fff; border:1.5px solid rgba(21,18,15,0.08);">
+          <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:14px;">
+            <span style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:14px; color:#2E7D52;">Body</span>
+            <code style="font-family:'Bricolage Grotesque',monospace; font-size:12px; color:#9A8F84;">--font-body</code>
+          </div>
+          <p style="margin:0 0 12px; font-family:'Fraunces',Georgia,serif; font-weight:500; font-size:25px; line-height:1.2; color:#15120F;">If it&rsquo;s listed, it&rsquo;s tasted.</p>
+          <p style="margin:0 0 4px; font-weight:700; font-size:15px; color:#322C26;">Fraunces</p>
+          <p style="margin:0; font-size:14px; line-height:1.5; color:#6B6157;">Warmth and an editorial feel &mdash; a soft modern serif, more characterful than a classic one but still easy to read through long steps.</p>
+        </div>
+
+        <div style="padding:22px; border-radius:18px; background:#fff; border:1.5px solid rgba(21,18,15,0.08);">
+          <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:14px;">
+            <span style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:14px; color:#6B6157;">Meta &amp; UI</span>
+            <code style="font-family:'Bricolage Grotesque',monospace; font-size:12px; color:#9A8F84;">--font-small</code>
+          </div>
+          <p style="margin:0 0 12px; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-weight:500; font-size:16px; letter-spacing:0.02em; line-height:1.4; color:#15120F;">PREP 10&rsquo; · COOK 20&rsquo; · SERVES 2</p>
+          <p style="margin:0 0 4px; font-weight:700; font-size:15px; color:#322C26;">Helvetica Neue</p>
+          <p style="margin:0; font-size:14px; line-height:1.5; color:#6B6157;">Neutral and clean for labels, timings and technical details &mdash; it steps back so the character stays in the headings and body.</p>
+        </div>
+
+      </div>
+    </section>
+
+    </div>
+
+    <div data-panel="tech" style="display:none;">
+
+    <!-- TECH STACK -->
+    <section data-reveal="" style="margin-top:48px;">
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
+        <span style="display:inline-block; padding:6px 14px; border-radius:999px; background:#15120F; color:#FFD08A; font-weight:700; font-size:13px; letter-spacing:0.04em; text-transform:uppercase;">Under the hood</span>
+        <span style="font-family:'Bricolage Grotesque',monospace; font-size:13px; font-weight:600; color:#6B6157;">100% vibe-coded · Claude Code + Codex</span>
+      </div>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(28px,4.5vw,44px); letter-spacing:-0.025em; margin:0 0 8px;">A whole content engine behind a recipe blog</h2>
+      <p style="margin:0 0 30px; max-width:680px; font-size:17px; line-height:1.6; color:#322C26; text-wrap:pretty;">It looks like a blog. It runs like a product. I wrote one recipe in Italian and a pipeline took it from a guided template, through machine translation, onto three language sites, and into subscribers’ inboxes — with comments flowing back in. Every piece below I built myself, pair-coding with Claude Code and Codex.</p>
+
+      <!-- WIX ORIGIN -->
+      <div style="margin:0 0 30px; padding:24px 26px; border-radius:18px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85); box-shadow:0 8px 30px rgba(120,50,80,0.08); display:flex; gap:18px; align-items:flex-start;">
+        <span style="flex:none; width:46px; height:46px; border-radius:12px; background:#F1ECE6; display:flex; align-items:center; justify-content:center; font-family:'Bricolage Grotesque',monospace; font-weight:800; font-size:15px; color:#9A8F84; text-decoration:line-through; text-decoration-thickness:2px;">Wix</span>
+        <div>
+          <p style="margin:0 0 6px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; letter-spacing:-0.015em;">It started on Wix</p>
+          <p style="margin:0; font-size:15px; line-height:1.6; color:#322C26;">The first version lived on Wix — fast to stand up, but it hit a technical ceiling almost immediately: I couldn’t shape the recipe layout the way the content actually needed, never mind wiring up translation, comments and automated newsletters. So I scrapped it and built the whole thing myself.</p>
+        </div>
+      </div>
+
+      <!-- PIPELINE FLOW -->
+      <div style="padding:30px 26px; border-radius:22px; background:#15120F; box-shadow:0 18px 54px rgba(21,18,15,0.24); overflow-x:auto;">
+        <p style="margin:0 0 22px; font-family:'Bricolage Grotesque',monospace; font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:#9A8F84;">The publishing pipeline, one recipe’s journey</p>
+        <div style="display:flex; align-items:stretch; gap:10px; min-width:760px;">
+
+          <div style="flex:1; display:flex; flex-direction:column; gap:8px; padding:18px 16px; border-radius:14px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);">
+            <span style="font-family:'Bricolage Grotesque',monospace; font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#5DD6A0;">Python</span>
+            <span style="font-weight:700; font-size:15px; color:#FCFAF7;">Guided template</span>
+            <span style="font-size:13px; line-height:1.45; color:#9A9AA7;">A CLI script walks me through an editorial template so every recipe ships with tools, timings &amp; structured steps.</span>
+          </div>
+
+          <div style="flex:none; align-self:center; color:#5C5C68; font-size:20px;">→</div>
+
+          <div style="flex:1; display:flex; flex-direction:column; gap:8px; padding:18px 16px; border-radius:14px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);">
+            <span style="font-family:'Bricolage Grotesque',monospace; font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#5DA9FF;">DeepL</span>
+            <span style="font-weight:700; font-size:15px; color:#FCFAF7;">Auto-translate</span>
+            <span style="font-size:13px; line-height:1.45; color:#9A9AA7;">One source recipe fans out to IT / EN / FR, keeping the ironic voice intact across all three sites.</span>
+          </div>
+
+          <div style="flex:none; align-self:center; color:#5C5C68; font-size:20px;">→</div>
+
+          <div style="flex:1; display:flex; flex-direction:column; gap:8px; padding:18px 16px; border-radius:14px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);">
+            <span style="font-family:'Bricolage Grotesque',monospace; font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#FF9E6B;">Astro · GitHub · Netlify</span>
+            <span style="font-weight:700; font-size:15px; color:#FCFAF7;">Build &amp; deploy</span>
+            <span style="font-size:13px; line-height:1.45; color:#9A9AA7;">Astro generates static pages, a push to GitHub triggers a Netlify build, the site goes live.</span>
+          </div>
+
+          <div style="flex:none; align-self:center; color:#5C5C68; font-size:20px;">→</div>
+
+          <div style="flex:1; display:flex; flex-direction:column; gap:8px; padding:18px 16px; border-radius:14px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);">
+            <span style="font-family:'Bricolage Grotesque',monospace; font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#C9A0FF;">GitHub Actions</span>
+            <span style="font-weight:700; font-size:15px; color:#FCFAF7;">Notify subscribers</span>
+            <span style="font-size:13px; line-height:1.45; color:#9A9AA7;">A workflow emails the new recipe to everyone on the list the moment it’s published.</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- STACK GRID -->
+      <div style="margin-top:18px; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px;">
+
+        <div style="padding:22px; border-radius:18px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85); box-shadow:0 8px 30px rgba(120,50,80,0.08);">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <span style="width:34px; height:34px; border-radius:9px; background:#FFEDE0; display:flex; align-items:center; justify-content:center; font-family:'Bricolage Grotesque',monospace; font-weight:800; font-size:15px; color:#C0532A;">A</span>
+            <span style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:17px;">Astro + GitHub + Netlify</span>
+          </div>
+          <p style="margin:0; font-size:14px; line-height:1.55; color:#322C26;">Static-site frontend, version-controlled in GitHub, continuously deployed on Netlify. Fast, free to host, trivial to scale.</p>
+        </div>
+
+        <div style="padding:22px; border-radius:18px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85); box-shadow:0 8px 30px rgba(120,50,80,0.08);">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <span style="width:34px; height:34px; border-radius:9px; background:#DEF0E6; display:flex; align-items:center; justify-content:center; font-family:'Bricolage Grotesque',monospace; font-weight:800; font-size:15px; color:#2E7D52;">S</span>
+            <span style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:17px;">Supabase</span>
+          </div>
+          <p style="margin:0; font-size:14px; line-height:1.55; color:#322C26;">Collects and publishes reader comments — a tiny backend behind a static site so the community can talk back under every recipe.</p>
+        </div>
+
+        <div style="padding:22px; border-radius:18px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85); box-shadow:0 8px 30px rgba(120,50,80,0.08);">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <span style="width:34px; height:34px; border-radius:9px; background:#EDE0FF; display:flex; align-items:center; justify-content:center; font-family:'Bricolage Grotesque',monospace; font-weight:800; font-size:15px; color:#7A52C0;">n8n</span>
+            <span style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:17px;">n8n</span>
+          </div>
+          <p style="margin:0; font-size:14px; line-height:1.55; color:#322C26;">Automation flows for newsletter subscribe &amp; unsubscribe — the plumbing that keeps the mailing list clean without me touching it.</p>
+        </div>
+
+        <div style="padding:22px; border-radius:18px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85); box-shadow:0 8px 30px rgba(120,50,80,0.08);">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <span style="width:34px; height:34px; border-radius:9px; background:#E6EEFF; display:flex; align-items:center; justify-content:center; font-family:'Bricolage Grotesque',monospace; font-weight:800; font-size:15px; color:#3A6FD8;">DL</span>
+            <span style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:17px;">DeepL</span>
+          </div>
+          <p style="margin:0; font-size:14px; line-height:1.55; color:#322C26;">Machine translation IT ↔ EN ↔ FR, so one recipe becomes three localized pages with the brand voice preserved.</p>
+        </div>
+
+        <div style="padding:22px; border-radius:18px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85); box-shadow:0 8px 30px rgba(120,50,80,0.08);">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <span style="width:34px; height:34px; border-radius:9px; background:#EDEDED; display:flex; align-items:center; justify-content:center; font-family:'Bricolage Grotesque',monospace; font-weight:800; font-size:13px; color:#15120F;">GH</span>
+            <span style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:17px;">GitHub Actions</span>
+          </div>
+          <p style="margin:0; font-size:14px; line-height:1.55; color:#322C26;">On publish, a workflow fires the new-recipe email to every subscriber — in the language they signed up in. Zero manual sends, no missed editions.</p>
+        </div>
+
+        <div style="padding:22px; border-radius:18px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85); box-shadow:0 8px 30px rgba(120,50,80,0.08);">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+            <span style="width:34px; height:34px; border-radius:9px; background:#FFF3D6; display:flex; align-items:center; justify-content:center; font-family:'Bricolage Grotesque',monospace; font-weight:800; font-size:15px; color:#B8860B;">py</span>
+            <span style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:17px;">Python script</span>
+          </div>
+          <p style="margin:0; font-size:14px; line-height:1.55; color:#322C26;">An internal editorial flow: a guided template that enforces the structure — tools-first, colored steps, checkboxes — on every new recipe.</p>
+        </div>
+
+      </div>
+
+      <p style="margin:22px 0 0; font-size:15px; line-height:1.6; color:#6B6157; font-style:italic;">The point isn’t the individual tools — it’s that a technical writer can architect, wire, and ship an end-to-end content system. The redaction discipline and the engineering are the same instinct.</p>
+    </section>
+
+    </div>
+
+    <div data-panel="ux">
+
+    <!-- HONEST STATUS -->
+    <section id="ux-roadmap" data-reveal="" style="scroll-margin-top:150px; margin-top:80px;">
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
+        <span style="display:inline-flex; align-items:center; gap:8px; padding:6px 14px; border-radius:999px; background:#FFE9C9; color:#C0532A; font-weight:700; font-size:13px; letter-spacing:0.04em; text-transform:uppercase;"><span style="width:8px; height:8px; border-radius:50%; background:#C0532A; animation:wobble 1.6s ease-in-out infinite alternate;"></span>Where it’s at, honestly</span>
+      </div>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(28px,4.5vw,44px); letter-spacing:-0.025em; margin:0 0 22px; max-width:18ch;">The bones are in — the polish isn’t, yet</h2>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
+        <div style="padding:28px; border-radius:20px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85); box-shadow:0 8px 30px rgba(120,50,80,0.08);">
+          <p style="margin:0 0 10px; font-family:'Caveat',cursive; font-weight:700; font-size:26px; color:#2E7D52;">Live, but a work in progress</p>
+          <p style="margin:0; font-size:16px; line-height:1.6; color:#322C26;">The blog is up and the automations are wired end-to-end — but the structure and pipelines are scaffolded, not finished. The design is where I keep iterating, and I’ve got a running list of things to push further.</p>
+        </div>
+        <div style="padding:28px; border-radius:20px; background:rgba(255,255,255,0.7); border:1.5px dashed rgba(192,83,42,0.4); box-shadow:0 8px 30px rgba(120,50,80,0.08);">
+          <p style="margin:0 0 10px; font-family:'Caveat',cursive; font-weight:700; font-size:26px; color:#C0532A;">Top of my fix-list: the images</p>
+          <p style="margin:0; font-size:16px; line-height:1.6; color:#322C26;">Right now a photo lands mid-instruction and splits a step in two — exactly the <span style="color:#C0532A; font-weight:600; border-bottom:1.5px solid rgba(192,83,42,0.4);">cognitive overload</span> the layout was built to kill. I want imagery to support a step without interrupting it: a quieter rail beside the text, or grouped at natural pauses — never mid-sentence.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUTURE -->
+    <section id="ux-future" data-reveal="" style="margin-top:48px; padding:40px; border-radius:24px; background:rgba(255,255,255,0.62); backdrop-filter:blur(10px); border:1.5px solid rgba(255,255,255,0.82); box-shadow:0 12px 40px rgba(120,50,80,0.1);">
+      <span style="display:inline-block; padding:6px 14px; border-radius:999px; background:#FFE9C9; color:#C0532A; font-weight:700; font-size:13px; letter-spacing:0.04em; text-transform:uppercase;">What’s next</span>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(26px,4vw,40px); letter-spacing:-0.025em; margin:16px 0 14px; max-width:18ch;">From personal blog to actual brand</h2>
+      <p style="margin:0 0 24px; max-width:640px; font-size:17px; line-height:1.6; color:#322C26; text-wrap:pretty;">Right now it’s just my blog, shared with friends. But if it takes off, the brand is ready to step out on its own: I’ve planned redirects onto dedicated domains — likely <strong>recettespourquiches.fr</strong> and <strong>cluelesscooksrecipes.com</strong> — alongside automated content pipelines that draft recipes in the house tone and post them across socials, turning clueless cooks into a community.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:10px;">
+        <span style="padding:9px 16px; border-radius:12px; background:#FBF4EC; font-weight:600; font-size:14px;">Dedicated domains + redirects</span>
+        <span style="padding:9px 16px; border-radius:12px; background:#FBF4EC; font-weight:600; font-size:14px;">Tone-of-voice content automation</span>
+        <span style="padding:9px 16px; border-radius:12px; background:#FBF4EC; font-weight:600; font-size:14px;">Auto-posting to social</span>
+        <span style="padding:9px 16px; border-radius:12px; background:#FBF4EC; font-weight:600; font-size:14px;">A mascot worth merch (the apron cat)</span>
+      </div>
+    </section>
+
+    </div>
+
+    <!-- separator before Let's talk -->
+    <div data-reveal data-letstalk-sep="" style="margin-top:80px; display:flex; align-items:center; gap:18px;">
+      <span style="flex:1; height:1px; background:linear-gradient(90deg, transparent, rgba(21,18,15,0.16));"></span>
+      <span style="flex:none; width:8px; height:8px; border-radius:50%; background:#FF9EBB;"></span>
+      <span style="flex:1; height:1px; background:linear-gradient(90deg, rgba(21,18,15,0.16), transparent);"></span>
+    </div>
+
+    <section data-reveal="" style="margin-top:44px; padding:44px; border-radius:28px; background:rgba(255,255,255,0.6); backdrop-filter:blur(12px); border:1.5px solid rgba(255,255,255,0.8); box-shadow:0 12px 40px rgba(70,50,100,0.1); text-align:center;">
+      <p style="margin:0 0 8px; font-weight:600; font-size:14px; letter-spacing:0.06em; text-transform:uppercase; color:#6B6157;">Get in touch</p>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(32px,5vw,56px); line-height:1; letter-spacing:-0.03em; margin:0 0 14px;">Let’s talk.</h2>
+      <p style="margin:0 auto 28px; max-width:480px; font-size:17px; line-height:1.55; color:#322C26;">Got a project, a role, or just want to swap kitty pictures and plant-based recipes? I’d love to hear from you.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center;">
+        <a href="mailto:sarahlasaracina@gmail.com" style="display:inline-flex; align-items:center; gap:9px; padding:13px 24px; border-radius:999px; background:#15120F; color:#FCFAF7; font-weight:700; font-size:15px;" style-hover="opacity:0.85;"><span>✉</span> sarahlasaracina@gmail.com</a>
+        <a href="https://www.linkedin.com/in/sarah-lasaracina-7a2235a7/?locale=en" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:9px; padding:13px 24px; border-radius:999px; background:rgba(255,255,255,0.7); border:1.5px solid #15120F; font-weight:700; font-size:15px;">LinkedIn <span>↗</span></a>
+        <a href="https://calendar.app.google/tcqRr4WiW6FZiQCq7" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:9px; padding:13px 24px; border-radius:999px; background:rgba(255,255,255,0.7); border:1.5px solid #15120F; font-weight:700; font-size:15px;"><span>📅</span> Meet me on lunch break <span>↗</span></a>
+      </div>
+    </section>
+
+    <footer style="margin-top:80px; padding-top:24px; border-top:1px solid rgba(21,18,15,0.12); display:flex; gap:20px; font-size:14px; font-weight:600; color:#6B6157;">
+      <a href="index.dc.html" style="border-bottom:1.5px solid rgba(21,18,15,0.25);">← All work</a>
+      <a href="cv.dc.html" style="border-bottom:1.5px solid rgba(21,18,15,0.25);">Full CV</a>
+    </footer>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;palette&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Rainbow&quot;,&quot;Sunset&quot;,&quot;Cotton candy&quot;,&quot;Citrus&quot;,&quot;Ocean&quot;],&quot;default&quot;:&quot;Rainbow&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;animateBackground&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const ease = 'cubic-bezier(0.2,0.8,0.2,1)';
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // scroll reveals
+    const reveals = Array.from(document.querySelectorAll('[data-reveal]'));
+    if (reduce) {
+      reveals.forEach(el => { el.style.opacity = '1'; });
+    } else {
+      reveals.forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(28px)'; });
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          el.style.transition = 'opacity .6s ease, transform .7s ' + ease;
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+          io.unobserve(el);
+        });
+      }, { threshold: 0.14 });
+      reveals.forEach(el => io.observe(el));
+    }
+
+    // tab switching
+    const tabs = Array.from(document.querySelectorAll('[data-tab]'));
+    const indicator = document.querySelector('[data-tab-indicator]');
+    const setTabStyle = (btn, on) => {
+      btn.style.color = on ? '#FCFAF7' : '#15120F';
+      const sub = btn.querySelector('[data-tab-sub]');
+      if (sub) { sub.style.color = on ? 'rgba(252,250,247,0.7)' : '#9A8F84'; }
+    };
+    const moveIndicator = (btn) => {
+      if (!indicator || !btn) return;
+      indicator.style.width = btn.offsetWidth + 'px';
+      indicator.style.transform = 'translateX(' + (btn.offsetLeft - 7) + 'px)';
+    };
+    const activate = (name, initial) => {
+      document.querySelectorAll('[data-panel]').forEach(p => {
+        p.style.display = p.getAttribute('data-panel') === name ? 'block' : 'none';
+      });
+      const activeBtn = tabs.find(t => t.getAttribute('data-tab') === name);
+      tabs.forEach(t => setTabStyle(t, t.getAttribute('data-tab') === name));
+      if (initial) {
+        // place indicator without animating in on first paint
+        const prev = indicator && indicator.style.transition;
+        if (indicator) indicator.style.transition = 'none';
+        moveIndicator(activeBtn);
+        requestAnimationFrame(() => { if (indicator) indicator.style.transition = prev || ''; });
+      } else {
+        moveIndicator(activeBtn);
+      }
+      if (!initial) {
+        document.querySelectorAll('[data-panel="' + name + '"] [data-reveal]').forEach(el => {
+          el.style.transition = 'opacity .5s ease, transform .6s ' + ease;
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        });
+        // keep the tab bar in place instead of jumping to the very top:
+        // only realign if the user has scrolled past the tabs
+        const bar = document.querySelector('[data-tabbar]');
+        if (bar) {
+          const target = bar.getBoundingClientRect().top + window.scrollY - 14;
+          if (window.scrollY > target) window.scrollTo({ top: target, behavior: 'instant' });
+        }
+      }
+    };
+    tabs.forEach(t => t.addEventListener('click', () => activate(t.getAttribute('data-tab'), false)));
+    let activeTab = 'ux';
+    tabs.forEach(t => t.addEventListener('click', () => { activeTab = t.getAttribute('data-tab'); }));
+    activate('ux', true);
+    const realign = () => {
+      const btn = tabs.find(t => t.getAttribute('data-tab') === activeTab);
+      const prev = indicator && indicator.style.transition;
+      if (indicator) indicator.style.transition = 'none';
+      moveIndicator(btn);
+      requestAnimationFrame(() => { if (indicator) indicator.style.transition = prev || ''; });
+    };
+    if (document.fonts && document.fonts.ready) { document.fonts.ready.then(realign); }
+    window.addEventListener('resize', realign);
+
+    // interactive recipe checkboxes
+    document.querySelectorAll('[data-step]').forEach(step => {
+      step.addEventListener('click', () => {
+        const on = step.getAttribute('data-checked') === '1';
+        const box = step.querySelector('[data-box]');
+        const body = step.querySelector('[data-body]');
+        const num = step.querySelector('[data-num]');
+        const chk = step.querySelector('[data-chk]');
+        if (on) {
+          step.setAttribute('data-checked', '0');
+          step.style.background = '#FBF7F1';
+          box.style.background = 'transparent';
+          box.style.borderColor = 'rgba(21,18,15,0.25)';
+          box.style.color = '#fff';
+          body.style.opacity = '1';
+          num.style.background = '#C0532A';
+          chk.style.color = '#9A8F84';
+        } else {
+          step.setAttribute('data-checked', '1');
+          step.style.background = '#EAF6EC';
+          box.style.background = '#2E7D52';
+          box.style.borderColor = '#2E7D52';
+          box.style.color = '#fff';
+          body.style.opacity = '0.5';
+          num.style.background = '#2E7D52';
+          chk.style.color = '#2E7D52';
+        }
+      });
+    });
+
+    // UX sub-nav: chips act as tabs — show only the selected section
+    const SECTIONS = ['ux-names','ux-story','ux-decisions','ux-color','ux-type','ux-roadmap','ux-future'];
+    const GROUPS = { 'ux-roadmap': ['ux-roadmap','ux-future'] };
+    const showSection = (key) => {
+      const show = GROUPS[key] || [key];
+      SECTIONS.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        if (show.indexOf(id) !== -1) {
+          el.style.display = '';
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+      document.querySelectorAll('[data-jump]').forEach(b => {
+        const on = b.getAttribute('data-jump') === key;
+        b.style.setProperty('background', on ? '#15120F' : 'transparent', 'important');
+        b.style.setProperty('color', on ? '#FCFAF7' : '#6B6157', 'important');
+      });
+      const nav = document.querySelector('[data-subnav]');
+      if (nav) {
+        const y = nav.getBoundingClientRect().top + window.scrollY - 84;
+        if (window.scrollY > y + 1) window.scrollTo(0, Math.max(0, y));
+      }
+    };
+    document.addEventListener('click', (e) => {
+      const btn = e.target && e.target.closest && e.target.closest('[data-jump]');
+      if (!btn) return;
+      showSection(btn.getAttribute('data-jump'));
+    });
+    showSection('ux-names');
+  }
+
+  renderVals() {
+    const palettes = {
+      Rainbow: ['#FFC2D1','#FFE0A8','#FFF6A8','#BFF0C9','#C3DBFF','#DCC6FF'],
+      Sunset: ['#FFD0B8','#FFB8C6','#FFC8A8','#FFE0A8','#FFB0A0','#FFD6C0'],
+      'Cotton candy': ['#FFD1EC','#E3D1FF','#D1E6FF','#FFE0F0','#E8D1FF','#D6F0FF'],
+      Citrus: ['#FFF3A8','#FFD9A8','#D8F5A8','#FFE8A8','#C8F0B0','#FFF0B8'],
+      Ocean: ['#BFF0E8','#BFE0FF','#C8D8FF','#BFF3F0','#D0F0E0','#CFE8FF'],
+    };
+    const name = this.props.palette ?? 'Rainbow';
+    const colors = palettes[name] || palettes.Rainbow;
+    const animate = this.props.animateBackground ?? true;
+    const layout = [
+      { top: '-12%', left: '-6%', size: '46vw', anim: 'blobA', dur: '24s' },
+      { top: '6%', left: '56%', size: '42vw', anim: 'blobB', dur: '30s' },
+      { top: '42%', left: '-12%', size: '40vw', anim: 'blobC', dur: '27s' },
+      { top: '54%', left: '46%', size: '48vw', anim: 'blobA', dur: '33s' },
+      { top: '16%', left: '24%', size: '34vw', anim: 'blobB', dur: '21s' },
+      { top: '74%', left: '14%', size: '38vw', anim: 'blobC', dur: '29s' },
+    ];
+    const blobs = layout.map((b, i) => React.createElement('div', {
+      key: i,
+      style: { position: 'absolute', top: b.top, left: b.left, width: b.size, height: b.size,
+        background: colors[i % colors.length], borderRadius: '50%', filter: 'blur(70px)',
+        opacity: 0.62, mixBlendMode: 'multiply',
+        animation: animate ? `${b.anim} ${b.dur} ease-in-out infinite alternate` : 'none' },
+    }));
+    const background = React.createElement('div', {
+      style: { position: 'fixed', inset: 0, zIndex: 0, overflow: 'hidden', pointerEvents: 'none' },
+    }, ...blobs);
+    return { background };
+  }
+}
+</script>
+</body>
+</html>

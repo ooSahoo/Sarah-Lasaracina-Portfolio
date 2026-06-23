@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background:#FCFAF7; font-family:'Hanken Grotesk',-apple-system,system-ui,sans-serif; color:#15120F; -webkit-font-smoothing:antialiased; }
+  a { color: inherit; text-decoration: none; }
+  @keyframes blobA { 0%{transform:translate(0,0) scale(1);} 100%{transform:translate(6vw,4vh) scale(1.15);} }
+  @keyframes blobB { 0%{transform:translate(0,0) scale(1.1);} 100%{transform:translate(-5vw,5vh) scale(0.95);} }
+  @keyframes blobC { 0%{transform:translate(0,0) scale(0.95);} 100%{transform:translate(4vw,-5vh) scale(1.12);} }
+  @keyframes fadeUp { 0%{opacity:0; transform:translateY(18px);} 100%{opacity:1; transform:translateY(0);} }
+</style>
+</helmet>
+
+<div style="position:relative; min-height:100vh; width:100%; overflow:hidden;">
+  {{ background }}
+  <main style="position:relative; z-index:1; max-width:920px; margin:0 auto; padding:28px 32px 90px;">
+
+    <nav style="display:flex; align-items:center; justify-content:space-between; padding:8px 0 56px;">
+      <a href="index.dc.html" style="display:inline-flex; align-items:center; gap:8px; font-weight:600; font-size:15px;" style-hover="opacity:0.6;"><span>&#8592;</span> Back</a>
+      <a href="cv.dc.html" style="font-weight:600; font-size:15px; border-bottom:1.5px solid rgba(21,18,15,0.25); white-space:nowrap;">Full CV</a>
+    </nav>
+
+    <header style="animation:fadeUp 0.6s cubic-bezier(0.2,0.8,0.2,1) both;">
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:18px;">
+        <span style="width:12px; height:12px; border-radius:50%; background:#C9AEFF;"></span>
+        <span style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:15px; letter-spacing:0.04em; text-transform:uppercase; color:#6B6157;">01 &middot; The craft</span>
+      </div>
+      <h1 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(40px,7vw,82px); line-height:0.96; letter-spacing:-0.03em; margin:0; max-width:15ch; text-wrap:balance;">Technical communication</h1>
+      <p style="margin:24px 0 0; max-width:680px; font-size:19px; line-height:1.6; color:#322C26; text-wrap:pretty;">Nine years turning dense, technical systems into documentation people can actually follow &mdash; developer docs and API references, SDK guides, user manuals, release notes, and the information architecture that holds it all together. I work close to engineering, in the code and in the docs, and I care as much about how content is structured and found as about how it reads.</p>
+    </header>
+
+    <section style="margin-top:36px; padding:30px; border-radius:22px; background:rgba(255,255,255,0.6); backdrop-filter:blur(10px); border:1.5px solid rgba(255,255,255,0.8); box-shadow:0 8px 30px rgba(70,50,100,0.08); display:flex; flex-direction:column; gap:20px;">
+      <div>
+        <p style="margin:0 0 10px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#6B6157;">Tools</p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="padding:7px 14px; border-radius:999px; background:#EFE6FF; font-weight:600; font-size:14px;">Redocly</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#EFE6FF; font-weight:600; font-size:14px;">MadCap Flare</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#EFE6FF; font-weight:600; font-size:14px;">Confluence</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#EFE6FF; font-weight:600; font-size:14px;">Git / GitHub</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#EFE6FF; font-weight:600; font-size:14px;">Postman</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#EFE6FF; font-weight:600; font-size:14px;">Swagger</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#EFE6FF; font-weight:600; font-size:14px;">Backstage</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#EFE6FF; font-weight:600; font-size:14px;">JIRA</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#EFE6FF; font-weight:600; font-size:14px;">Netlify</span>
+        </div>
+      </div>
+      <div>
+        <p style="margin:0 0 10px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#6B6157;">Languages &amp; formats</p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="padding:7px 14px; border-radius:999px; background:#E6F0FF; font-weight:600; font-size:14px;">Markdown</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#E6F0FF; font-weight:600; font-size:14px;">HTML / CSS</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#E6F0FF; font-weight:600; font-size:14px;">OpenAPI / Swagger</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#E6F0FF; font-weight:600; font-size:14px;">Docs-as-Code</span>
+        </div>
+      </div>
+      <div>
+        <p style="margin:0 0 10px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#6B6157;">Tech</p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="padding:7px 14px; border-radius:999px; background:#E6FBEF; font-weight:600; font-size:14px;">REST &amp; APIs</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#E6FBEF; font-weight:600; font-size:14px;">OAuth / OIDC</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#E6FBEF; font-weight:600; font-size:14px;">SSO &amp; passkeys</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#E6FBEF; font-weight:600; font-size:14px;">IAM</span>
+        </div>
+      </div>
+      <div>
+        <p style="margin:0 0 10px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#6B6157;">Domains</p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="padding:7px 14px; border-radius:999px; background:#FFF3D6; font-weight:600; font-size:14px;">Cybersecurity</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#FFF3D6; font-weight:600; font-size:14px;">Healthcare</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#FFF3D6; font-weight:600; font-size:14px;">Finance</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#FFF3D6; font-weight:600; font-size:14px;">Telco</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#FFF3D6; font-weight:600; font-size:14px;">E-commerce</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#FFF3D6; font-weight:600; font-size:14px;">Consulting</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#FFF3D6; font-weight:600; font-size:14px;">Hospitality</span>
+        </div>
+      </div>
+      <div>
+        <p style="margin:0 0 10px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#6B6157;">Methods</p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="padding:7px 14px; border-radius:999px; background:#FFE6EF; font-weight:600; font-size:14px;">User research first</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#FFE6EF; font-weight:600; font-size:14px;">UX analysis first</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#FFE6EF; font-weight:600; font-size:14px;">Information mapping</span>
+        </div>
+      </div>
+      <div>
+        <p style="margin:0 0 10px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#6B6157;">AI</p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="padding:7px 14px; border-radius:999px; background:#DDF1EE; font-weight:600; font-size:14px;">GPT</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#DDF1EE; font-weight:600; font-size:14px;">GPT Assistants</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#DDF1EE; font-weight:600; font-size:14px;">Codex</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#DDF1EE; font-weight:600; font-size:14px;">Claude Code</span>
+          <span style="padding:7px 14px; border-radius:999px; background:#DDF1EE; font-weight:600; font-size:14px;">Higgsfield</span>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top:48px;">
+      <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:20px;">
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:24px; letter-spacing:-0.02em; margin:0;">Role by role</h2>
+        <span style="font-weight:600; font-size:14px; color:#6B6157;">keywords &middot; more to come</span>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:18px;">
+
+        <div style="display:flex; flex-direction:column; gap:14px; padding:24px; border-radius:20px; background:rgba(255,255,255,0.62); backdrop-filter:blur(10px); border:1.5px solid rgba(255,255,255,0.8); box-shadow:0 8px 30px rgba(70,50,100,0.08);">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+            <div>
+              <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:0;">Docs portal owner</h3>
+              <p style="margin:2px 0 0; font-weight:600; font-size:14px; color:#7A55D6;">Alfred Co.host</p>
+            </div>
+            <span style="font-size:12px; font-weight:600; color:#9A8F84; white-space:nowrap;">2023 &ndash; now</span>
+          </div>
+          <p style="margin:0; font-size:14px; line-height:1.55; color:#322C26;">The challenge: staying genuinely helpful without ever being obvious, explaining Alfred&rsquo;s concepts to an international audience aged 25 to 65. I leaned on strict information mapping, a deliberately shallow structure, and disambiguation hubs with clear cards &mdash; keeping terminology identical to the UI across every translation.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:7px;">
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Portal ownership</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">User guides</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Information architecture</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">AI vibe coding</span>
+          </div>
+          <a href="https://docs.alfredco.host/#/en/" target="_blank" rel="noopener" style="align-self:flex-start; display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:13px; color:#7A55D6;" style-hover="opacity:0.65;">Read the docs <span>&#8599;</span></a>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:14px; padding:24px; border-radius:20px; background:rgba(255,255,255,0.62); backdrop-filter:blur(10px); border:1.5px solid rgba(255,255,255,0.8); box-shadow:0 8px 30px rgba(70,50,100,0.08);">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+            <div>
+              <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:0;">Technical Writer</h3>
+              <p style="margin:2px 0 0; font-weight:600; font-size:14px; color:#7A55D6;">Transmit Security</p>
+            </div>
+            <span style="font-size:12px; font-weight:600; color:#9A8F84; white-space:nowrap;">2023 &ndash; now</span>
+          </div>
+          <p style="margin:0; font-size:14px; line-height:1.55; color:#322C26;">Documenting security-critical, invisible flows &mdash; OAuth/OIDC, passkeys, journey orchestration &mdash; with zero room for ambiguity, while APIs and SDKs across Web, iOS and Android keep evolving. I validate every flow hands-on so the docs stay as dependable as the product.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:7px;">
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Developer docs</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">API references</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">SDKs &middot; Web / iOS / Android</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">IAM</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">OAuth / OIDC</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">SSO &amp; passkeys</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Orchestration journeys</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Docs-as-Code</span>
+          </div>
+          <a href="https://developer.transmitsecurity.com/" target="_blank" rel="noopener" style="align-self:flex-start; display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:13px; color:#7A55D6;" style-hover="opacity:0.65;">Read the docs <span>&#8599;</span></a>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:14px; padding:24px; border-radius:20px; background:rgba(255,255,255,0.62); backdrop-filter:blur(10px); border:1.5px solid rgba(255,255,255,0.8); box-shadow:0 8px 30px rgba(70,50,100,0.08);">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+            <div>
+              <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:0;">Senior Technical Writer</h3>
+              <p style="margin:2px 0 0; font-weight:600; font-size:14px; color:#7A55D6;">Empathy.co</p>
+            </div>
+            <span style="font-size:12px; font-weight:600; color:#9A8F84; white-space:nowrap;">2022 &ndash; 2023</span>
+          </div>
+          <p style="margin:0; font-size:14px; line-height:1.55; color:#322C26;">Standing up functional and backend API documentation from scratch, in fast Agile cycles, for an audience that&rsquo;s half product, half engineering. The hard part: pulling scattered knowledge across Confluence, Backstage, Postman and Swagger into one coherent, searchable voice.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:7px;">
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Product docs</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Backend API docs</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Confluence</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Backstage</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Postman</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Swagger</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Agile / Scrum</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Knowledge management</span>
+          </div>
+          <a href="https://docs.empathy.co/" target="_blank" rel="noopener" style="align-self:flex-start; display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:13px; color:#7A55D6;" style-hover="opacity:0.65;">Read the docs <span>&#8599;</span></a>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:14px; padding:24px; border-radius:20px; background:rgba(255,255,255,0.62); backdrop-filter:blur(10px); border:1.5px solid rgba(255,255,255,0.8); box-shadow:0 8px 30px rgba(70,50,100,0.08);">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+            <div>
+              <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:0;">Technical Communicator</h3>
+              <p style="margin:2px 0 0; font-weight:600; font-size:14px; color:#7A55D6;">Writec</p>
+            </div>
+            <span style="font-size:12px; font-weight:600; color:#9A8F84; white-space:nowrap;">2021 &ndash; 2022</span>
+          </div>
+          <p style="margin:0; font-size:14px; line-height:1.55; color:#322C26;">Jumping from one client and project to the next &mdash; industrial automation, printing machinery, finance &mdash; each with its own jargon, tools and reader. I used information mapping and plain language to make dense, regulated material usable, and published multi-output in MadCap Flare.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:7px;">
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Functional &amp; API docs</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Industrial automation</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Finance</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">MadCap Flare</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Information mapping</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Plain language</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Terminology</span>
+          </div>
+          <a href="https://writec.com/" target="_blank" rel="noopener" style="align-self:flex-start; display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:13px; color:#7A55D6;" style-hover="opacity:0.65;">Visit Writec <span>&#8599;</span></a>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:14px; padding:24px; border-radius:20px; background:rgba(255,255,255,0.62); backdrop-filter:blur(10px); border:1.5px solid rgba(255,255,255,0.8); box-shadow:0 8px 30px rgba(70,50,100,0.08);">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+            <div>
+              <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:0;">Technical Writer</h3>
+              <p style="margin:2px 0 0; font-weight:600; font-size:14px; color:#7A55D6;">Cerner (now Oracle Health)</p>
+            </div>
+            <span style="font-size:12px; font-weight:600; color:#9A8F84; white-space:nowrap;">2018 &ndash; 2021</span>
+          </div>
+          <p style="margin:0; font-size:14px; line-height:1.55; color:#322C26;">In healthcare admin and finance software, accuracy is compliance &mdash; a wrong step in a guide has real consequences. I owned the information architecture, kept docs in lockstep with a fast-moving product, and worked with UX to rewrite the interface text itself.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:7px;">
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Healthcare software</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Install &amp; user guides</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Confluence Wiki</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Web Services</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Information architecture</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Compliance</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">UX redesign</span>
+          </div>
+          <a href="https://www.oracle.com/health/" target="_blank" rel="noopener" style="align-self:flex-start; display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:13px; color:#7A55D6;" style-hover="opacity:0.65;">Visit Oracle Health <span>&#8599;</span></a>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:14px; padding:24px; border-radius:20px; background:rgba(255,255,255,0.62); backdrop-filter:blur(10px); border:1.5px solid rgba(255,255,255,0.8); box-shadow:0 8px 30px rgba(70,50,100,0.08);">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+            <div>
+              <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:0;">Product Expert</h3>
+              <p style="margin:2px 0 0; font-weight:600; font-size:14px; color:#7A55D6;">Dimelo (now RingCentral)</p>
+            </div>
+            <span style="font-size:12px; font-weight:600; color:#9A8F84; white-space:nowrap;">2017 &ndash; 2018</span>
+          </div>
+          <p style="margin:0; font-size:14px; line-height:1.55; color:#322C26;">Sitting between support, product and R&amp;D &mdash; turning real customer friction into clear help content and roadmap input. I produced bilingual (EN&harr;FR) Help Center articles and release comms built to cut tickets, not just describe features.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:7px;">
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">CRM SaaS</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Help Center</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">EN &harr; FR localization</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Training materials</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Release comms</span>
+          </div>
+          <a href="https://www.ringcentral.com/ringcx/omnichannel.html" target="_blank" rel="noopener" style="align-self:flex-start; display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:13px; color:#7A55D6;" style-hover="opacity:0.65;">Visit RingCentral <span>&#8599;</span></a>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:14px; padding:24px; border-radius:20px; background:rgba(255,255,255,0.62); backdrop-filter:blur(10px); border:1.5px solid rgba(255,255,255,0.8); box-shadow:0 8px 30px rgba(70,50,100,0.08);">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+            <div>
+              <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:0;">Translation &amp; proofreading</h3>
+              <p style="margin:2px 0 0; font-weight:600; font-size:14px; color:#7A55D6;">Discovery Publishers &middot; CIHEAM-Bari</p>
+            </div>
+            <span style="font-size:12px; font-weight:600; color:#9A8F84; white-space:nowrap;">2013 &ndash; 2016</span>
+          </div>
+          <p style="margin:0; font-size:14px; line-height:1.55; color:#322C26;">Carrying meaning, terminology and cultural accuracy intact across EN/FR &rarr; IT, from books to technical texts. It&rsquo;s where I learned the precision and register discipline that underpins all my technical writing today.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:7px;">
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">EN / FR &rarr; IT</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Technical translation</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Proofreading</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Terminology</span>
+            <span style="padding:6px 12px; border-radius:999px; background:#F2ECFF; font-weight:600; font-size:13px;">Localization</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- separator before Let's talk -->
+    <div data-reveal data-letstalk-sep="" style="margin-top:80px; display:flex; align-items:center; gap:18px;">
+      <span style="flex:1; height:1px; background:linear-gradient(90deg, transparent, rgba(21,18,15,0.16));"></span>
+      <span style="flex:none; width:8px; height:8px; border-radius:50%; background:#C9AEFF;"></span>
+      <span style="flex:1; height:1px; background:linear-gradient(90deg, rgba(21,18,15,0.16), transparent);"></span>
+    </div>
+
+    <section data-reveal="" style="margin-top:44px; padding:44px; border-radius:28px; background:rgba(255,255,255,0.6); backdrop-filter:blur(12px); border:1.5px solid rgba(255,255,255,0.8); box-shadow:0 12px 40px rgba(70,50,100,0.1); text-align:center;">
+      <p style="margin:0 0 8px; font-weight:600; font-size:14px; letter-spacing:0.06em; text-transform:uppercase; color:#6B6157;">Get in touch</p>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(32px,5vw,56px); line-height:1; letter-spacing:-0.03em; margin:0 0 14px;">Let’s talk.</h2>
+      <p style="margin:0 auto 28px; max-width:480px; font-size:17px; line-height:1.55; color:#322C26;">Got a project, a role, or just want to swap kitty pictures and plant-based recipes? I’d love to hear from you.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center;">
+        <a href="mailto:sarahlasaracina@gmail.com" style="display:inline-flex; align-items:center; gap:9px; padding:13px 24px; border-radius:999px; background:#15120F; color:#FCFAF7; font-weight:700; font-size:15px;" style-hover="opacity:0.85;"><span>✉</span> sarahlasaracina@gmail.com</a>
+        <a href="https://www.linkedin.com/in/sarah-lasaracina-7a2235a7/?locale=en" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:9px; padding:13px 24px; border-radius:999px; background:rgba(255,255,255,0.7); border:1.5px solid #15120F; font-weight:700; font-size:15px;">LinkedIn <span>↗</span></a>
+        <a href="https://calendar.app.google/tcqRr4WiW6FZiQCq7" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:9px; padding:13px 24px; border-radius:999px; background:rgba(255,255,255,0.7); border:1.5px solid #15120F; font-weight:700; font-size:15px;"><span>📅</span> Meet me on lunch break <span>↗</span></a>
+      </div>
+    </section>
+
+    <footer style="margin-top:80px; padding-top:24px; border-top:1px solid rgba(21,18,15,0.12); display:flex; gap:20px; font-size:14px; font-weight:600; color:#6B6157;">
+      <a href="index.dc.html" style="border-bottom:1.5px solid rgba(21,18,15,0.25);">&#8592; All work</a>
+      <a href="cv.dc.html" style="border-bottom:1.5px solid rgba(21,18,15,0.25);">Full CV</a>
+    </footer>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;palette&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Rainbow&quot;,&quot;Sunset&quot;,&quot;Cotton candy&quot;,&quot;Citrus&quot;,&quot;Ocean&quot;],&quot;default&quot;:&quot;Rainbow&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;animateBackground&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const palettes = {
+      Rainbow: ['#FFC2D1','#FFE0A8','#FFF6A8','#BFF0C9','#C3DBFF','#DCC6FF'],
+      Sunset: ['#FFD0B8','#FFB8C6','#FFC8A8','#FFE0A8','#FFB0A0','#FFD6C0'],
+      'Cotton candy': ['#FFD1EC','#E3D1FF','#D1E6FF','#FFE0F0','#E8D1FF','#D6F0FF'],
+      Citrus: ['#FFF3A8','#FFD9A8','#D8F5A8','#FFE8A8','#C8F0B0','#FFF0B8'],
+      Ocean: ['#BFF0E8','#BFE0FF','#C8D8FF','#BFF3F0','#D0F0E0','#CFE8FF'],
+    };
+    const name = this.props.palette ?? 'Rainbow';
+    const colors = palettes[name] || palettes.Rainbow;
+    const animate = this.props.animateBackground ?? true;
+    const layout = [
+      { top: '-12%', left: '-6%', size: '46vw', anim: 'blobA', dur: '24s' },
+      { top: '6%', left: '56%', size: '42vw', anim: 'blobB', dur: '30s' },
+      { top: '42%', left: '-12%', size: '40vw', anim: 'blobC', dur: '27s' },
+      { top: '54%', left: '46%', size: '48vw', anim: 'blobA', dur: '33s' },
+      { top: '16%', left: '24%', size: '34vw', anim: 'blobB', dur: '21s' },
+      { top: '74%', left: '14%', size: '38vw', anim: 'blobC', dur: '29s' },
+    ];
+    const blobs = layout.map((b, i) => React.createElement('div', {
+      key: i,
+      style: { position: 'absolute', top: b.top, left: b.left, width: b.size, height: b.size,
+        background: colors[i % colors.length], borderRadius: '50%', filter: 'blur(70px)',
+        opacity: 0.62, mixBlendMode: 'multiply',
+        animation: animate ? `${b.anim} ${b.dur} ease-in-out infinite alternate` : 'none' },
+    }));
+    const background = React.createElement('div', {
+      style: { position: 'fixed', inset: 0, zIndex: 0, overflow: 'hidden', pointerEvents: 'none' },
+    }, ...blobs);
+    return { background };
+  }
+}
+</script>
+</body>
+</html>

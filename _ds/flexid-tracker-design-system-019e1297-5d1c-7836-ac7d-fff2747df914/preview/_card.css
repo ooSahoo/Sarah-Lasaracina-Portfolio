@@ -1,0 +1,158 @@
+/* Shared card styles for Design System preview cards.
+   Each card is rendered in a 700×N frame; design assumes the frame's exact size. */
+@import url("../colors_and_type.css");
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: var(--canvas);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  overflow: hidden;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--canvas);
+}
+
+.card.surface { background: var(--surface); }
+
+.row { display: flex; align-items: center; gap: 12px; }
+.col { display: flex; flex-direction: column; gap: 8px; }
+.fill { flex: 1; min-width: 0; }
+.right { margin-left: auto; }
+
+/* Swatches */
+.sw {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+.sw-chip {
+  height: 56px;
+  border-radius: 8px;
+  border: 1px solid var(--hairline);
+  position: relative;
+  overflow: hidden;
+}
+.sw-chip[data-bordered="false"] { border: none; }
+.sw-meta { display: flex; flex-direction: column; gap: 2px; }
+.sw-name { font-size: 11px; line-height: 14px; color: var(--fg); font-weight: 500; }
+.sw-hex {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 12px;
+  color: var(--fg-subtle);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Specimen rows */
+.specimen { display: flex; flex-direction: column; gap: 12px; }
+.specimen-row { display: flex; align-items: baseline; gap: 16px; }
+.specimen-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 12px;
+  color: var(--fg-subtle);
+  width: 64px;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Pills/dots */
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 500;
+}
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 14px;
+  color: var(--fg-muted);
+  background: var(--surface-raised);
+}
+
+/* Card header */
+.card-h {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.card-h .t-caps { color: var(--fg-subtle); }
+
+/* Mini section labels */
+.mini-label {
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg-subtle);
+  font-weight: 500;
+}
+
+/* Issue row preview */
+.issue-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 36px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--hairline);
+  font-size: 12px;
+}
+.issue-row:last-child { border-bottom: none; }
+.issue-row .key {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  width: 64px;
+}
+.issue-row .summary {
+  flex: 1;
+  color: var(--fg);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.issue-row .when {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--fg-subtle);
+  width: 48px;
+  text-align: right;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+.dot.pulse { animation: pulse-dot 1.6s ease-in-out infinite; }
+
+/* Use lucide via sprite */
+.icon { width: 14px; height: 14px; flex-shrink: 0; }

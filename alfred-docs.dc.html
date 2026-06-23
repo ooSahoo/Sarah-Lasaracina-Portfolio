@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background:#FCFAF7; font-family:'Hanken Grotesk',-apple-system,system-ui,sans-serif; color:#15120F; -webkit-font-smoothing:antialiased; }
+  a { color: inherit; text-decoration: none; }
+  @keyframes blobA { 0%{transform:translate(0,0) scale(1);} 100%{transform:translate(6vw,4vh) scale(1.15);} }
+  @keyframes blobB { 0%{transform:translate(0,0) scale(1.1);} 100%{transform:translate(-5vw,5vh) scale(0.95);} }
+  @keyframes blobC { 0%{transform:translate(0,0) scale(0.95);} 100%{transform:translate(4vw,-5vh) scale(1.12);} }
+  @keyframes fadeUp { 0%{opacity:0; transform:translateY(18px);} 100%{opacity:1; transform:translateY(0);} }
+</style>
+</helmet>
+
+<div style="position:relative; min-height:100vh; width:100%; overflow:hidden;">
+  {{ background }}
+  <main style="position:relative; z-index:1; max-width:880px; margin:0 auto; padding:28px 32px 90px;">
+
+    <nav style="display:flex; align-items:center; justify-content:space-between; padding:8px 0 56px;">
+      <a href="index.dc.html" style="display:inline-flex; align-items:center; gap:8px; font-weight:600; font-size:15px;" style-hover="opacity:0.6;"><span>←</span> Back</a>
+      <a href="cv.dc.html" style="font-weight:600; font-size:15px; border-bottom:1.5px solid rgba(21,18,15,0.25);">Full CV</a>
+    </nav>
+
+    <header style="animation:fadeUp 0.6s cubic-bezier(0.2,0.8,0.2,1) both;">
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:18px;">
+        <span style="width:12px; height:12px; border-radius:50%; background:#7FD6A0;"></span>
+        <span style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:15px; letter-spacing:0.04em; text-transform:uppercase; color:#6B6157;">03 · End-to-end ownership</span>
+      </div>
+      <h1 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(40px,7vw,82px); line-height:0.96; letter-spacing:-0.03em; margin:0; max-width:15ch; text-wrap:balance;">Alfred Co.Host docs portal</h1>
+      <p style="margin:24px 0 0; max-width:660px; font-size:20px; line-height:1.6; color:#322C26; text-wrap:pretty;">I owned the Alfred Co.Host docs portal end to end — information architecture, visual identity, the build, and every word inside it. The hard part was never the writing; it was staying genuinely helpful without ever being obvious.</p>
+      <div style="margin-top:30px; padding-top:22px; border-top:1px solid rgba(21,18,15,0.1); display:flex; flex-wrap:wrap; gap:34px;">
+        <div>
+          <p style="margin:0 0 4px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:#6B6157;">Role</p>
+          <p style="margin:0; font-weight:600; font-size:15px; color:#15120F;">Docs portal owner</p>
+        </div>
+        <div>
+          <p style="margin:0 0 4px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:#6B6157;">Timeframe</p>
+          <p style="margin:0; font-weight:600; font-size:15px; color:#15120F;">2023 &ndash; present</p>
+        </div>
+        <div>
+          <p style="margin:0 0 4px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:#6B6157;">Scope</p>
+          <p style="margin:0; font-weight:600; font-size:15px; color:#15120F;">Information architecture &middot; Visual identity &middot; Content &middot; Multilingual</p>
+        </div>
+      </div>
+    </header>
+
+    <section style="margin-top:48px; padding:32px; border-radius:24px; background:rgba(255,255,255,0.62); backdrop-filter:blur(10px); border:1.5px solid rgba(255,255,255,0.8); box-shadow:0 8px 30px rgba(70,50,100,0.08);">
+      <p style="margin:0 0 10px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:#3FA86A;">The challenge</p>
+      <p style="margin:0 0 16px; font-size:19px; line-height:1.6; color:#322C26; max-width:68ch; text-wrap:pretty;"><strong style="font-weight:700;">Alfred Co.Host</strong> is an enhanced hospitality AI assistant. Through the <a href="alfred-platform.dc.html" style="font-weight:700; color:#2E8C57; border-bottom:1.5px solid rgba(46,140,87,0.4);">Alfred Co.Host Platform</a>, owners build its knowledge base &mdash; text and media &mdash; run subscriptions in parallel across properties, and wire up every touchpoint. It isn’t a static interface product: you’re configuring something destined for an AI, which is a different mental model entirely.</p>
+      <p style="margin:0; font-size:19px; line-height:1.6; color:#322C26; max-width:68ch; text-wrap:pretty;">That’s exactly where the documentation challenge lived. Alfred’s audience is worldwide and spans 25 to 65, and I couldn’t assume that everyone — given who they are — arrived equally fluent in tech, let alone in how to think for an AI. I had to make genuinely new concepts clear enough for a first-timer without ever talking down to a pro. Helpful, never obvious.</p>
+    </section>
+
+    <section style="margin-top:40px;">
+      <p style="margin:0 0 8px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:#3FA86A;">The approach</p>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:24px; letter-spacing:-0.02em; margin:0 0 20px;">How I kept it clear</h2>
+      <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:18px;">
+        <div style="padding:26px; border-radius:22px; background:rgba(255,255,255,0.62); backdrop-filter:blur(10px); border:1.5px solid rgba(255,255,255,0.8); box-shadow:0 8px 30px rgba(70,50,100,0.08);">
+          <div style="width:40px; height:40px; border-radius:12px; background:#CFF2DD; display:flex; align-items:center; justify-content:center; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:18px; margin-bottom:14px;">1</div>
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:0 0 8px;">Strict information mapping</h3>
+          <p style="margin:0; font-size:15px; line-height:1.6; color:#322C26;">Every page answers one question and one job-to-be-done, mapped out before a single word was written.</p>
+        </div>
+        <div style="padding:26px; border-radius:22px; background:rgba(255,255,255,0.62); backdrop-filter:blur(10px); border:1.5px solid rgba(255,255,255,0.8); box-shadow:0 8px 30px rgba(70,50,100,0.08);">
+          <div style="width:40px; height:40px; border-radius:12px; background:#CFF2DD; display:flex; align-items:center; justify-content:center; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:18px; margin-bottom:14px;">2</div>
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:0 0 8px;">Shallow, scannable structure</h3>
+          <p style="margin:0; font-size:15px; line-height:1.6; color:#322C26;">A deliberately flat hierarchy — fewer levels, less nesting — so no one gets lost three clicks deep.</p>
+        </div>
+        <div style="padding:26px; border-radius:22px; background:rgba(255,255,255,0.62); backdrop-filter:blur(10px); border:1.5px solid rgba(255,255,255,0.8); box-shadow:0 8px 30px rgba(70,50,100,0.08);">
+          <div style="width:40px; height:40px; border-radius:12px; background:#CFF2DD; display:flex; align-items:center; justify-content:center; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:18px; margin-bottom:14px;">3</div>
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:0 0 8px;">Disambiguation hubs</h3>
+          <p style="margin:0; font-size:15px; line-height:1.6; color:#322C26;">Clear hub cards that route lookalike concepts to the right place — before confusion ever starts.</p>
+        </div>
+        <div style="padding:26px; border-radius:22px; background:rgba(255,255,255,0.62); backdrop-filter:blur(10px); border:1.5px solid rgba(255,255,255,0.8); box-shadow:0 8px 30px rgba(70,50,100,0.08);">
+          <div style="width:40px; height:40px; border-radius:12px; background:#CFF2DD; display:flex; align-items:center; justify-content:center; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:18px; margin-bottom:14px;">4</div>
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:0 0 8px;">UI-identical terminology</h3>
+          <p style="margin:0; font-size:15px; line-height:1.6; color:#322C26;">Every term mirrors the product UI exactly, and stays consistent across every translation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top:40px; padding:32px; border-radius:24px; background:linear-gradient(135deg, rgba(207,242,221,0.7), rgba(255,255,255,0.5)); backdrop-filter:blur(10px); border:1.5px solid rgba(255,255,255,0.85); box-shadow:0 8px 30px rgba(70,50,100,0.08);">
+      <p style="margin:0 0 8px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:#3FA86A;">Conversational by design</p>
+      <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(26px,3.4vw,38px); line-height:1; letter-spacing:-0.02em; margin:0 0 12px;">The docs answer back</h3>
+      <p style="margin:0 0 22px; max-width:68ch; font-size:17px; line-height:1.6; color:#322C26; text-wrap:pretty;">The GPT assistant underneath is one I built and wired up myself &mdash; not an off-the-shelf widget. It doesn&rsquo;t just read pages back: it surfaces resources that are genuinely relevant, because I curated and piloted what it&rsquo;s allowed to recommend.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px;">
+        <div style="padding:22px; border-radius:18px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85);">
+          <h4 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:17px; margin:0 0 8px;">Curated, not generic</h4>
+          <p style="margin:0; font-size:15px; line-height:1.6; color:#322C26;">It points to the right guide, not the nearest keyword match &mdash; every recommended resource is one I vetted and steered.</p>
+        </div>
+        <div style="padding:22px; border-radius:18px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85);">
+          <h4 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:17px; margin:0 0 8px;">Dynamic multilingual</h4>
+          <p style="margin:0; font-size:15px; line-height:1.6; color:#322C26;">It detects the language from the user&rsquo;s browser and replies in it &mdash; unless they write in another language &mdash; and builds links straight to the correctly translated page.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top:40px;">
+      <div style="padding:28px; border-radius:22px; background:rgba(255,255,255,0.62); backdrop-filter:blur(10px); border:1.5px solid rgba(255,255,255,0.8); box-shadow:0 8px 30px rgba(70,50,100,0.08);">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:0 0 6px;">Built with</h3>
+        <p style="margin:0 0 20px; font-size:14px; line-height:1.55; color:#6B6157;">A lean docs-as-code stack, shipped continuously.</p>
+        <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:14px;">
+          <div style="padding:18px; border-radius:16px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85);">
+            <p style="margin:0 0 6px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:16px;">GitHub</p>
+            <p style="margin:0; font-size:14px; line-height:1.55; color:#322C26;">Single source of truth for the docs — versioned, reviewed, and the trigger for every deploy.</p>
+          </div>
+          <div style="padding:18px; border-radius:16px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85);">
+            <p style="margin:0 0 6px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:16px;">Netlify</p>
+            <p style="margin:0; font-size:14px; line-height:1.55; color:#322C26;">Continuous delivery — every push to GitHub ships the portal live, no manual steps.</p>
+          </div>
+          <div style="padding:18px; border-radius:16px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85);">
+            <p style="margin:0 0 6px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:16px;">Docsify</p>
+            <p style="margin:0; font-size:14px; line-height:1.55; color:#322C26;">Powers the site, but the components are overridden and designed by me &mdash; not the default theme.</p>
+          </div>
+          <div style="padding:18px; border-radius:16px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85);">
+            <p style="margin:0 0 6px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:16px;">GPT assistant</p>
+            <p style="margin:0; font-size:14px; line-height:1.55; color:#322C26;">A custom AI assistant I built and wired in &mdash; integrated directly into the portal.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top:40px; padding:32px; border-radius:24px; background:rgba(255,255,255,0.62); backdrop-filter:blur(10px); border:1.5px solid rgba(255,255,255,0.8); box-shadow:0 8px 30px rgba(70,50,100,0.08); display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:28px; align-items:center;">
+      <div>
+        <p style="margin:0 0 8px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:#C58A2E;">Pain points</p>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(24px,3.2vw,34px); line-height:1.02; letter-spacing:-0.02em; margin:0 0 12px;">Honest about what&rsquo;s left</h3>
+        <p style="margin:0; font-size:16px; line-height:1.6; color:#322C26; max-width:54ch; text-wrap:pretty;">Full accessibility optimization isn&rsquo;t done yet &mdash; a matter of time and resources, not intent. Even so, the design-led choices I made (informed by the accessibility training I&rsquo;ve taken) carry their weight: the portal already scores <strong style="font-weight:700;">93.4%</strong> on Eye-Able. The mobile experience can be sharper too &mdash; I know it, and closing both gaps is next on my list.</p>
+      </div>
+      <div style="text-align:center; padding:26px 20px; border-radius:18px; background:#EDF8F1; border:1.5px solid rgba(63,168,106,0.25);">
+        <p style="margin:0; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(40px,7vw,58px); line-height:1; letter-spacing:-0.03em; color:#2E8C57;">93.4%</p>
+        <p style="margin:8px 0 14px; font-weight:600; font-size:14px; color:#4A4641;">accessibility score</p>
+        <a href="https://eye-able.com/en" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:13px; color:#2E8C57;" style-hover="opacity:0.7;">measured on Eye-Able <span>&#8599;</span></a>
+      </div>
+    </section>
+
+    <section style="margin-top:48px;">
+      <p style="margin:0 0 8px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:#3FA86A;">See it live</p>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:24px; letter-spacing:-0.02em; margin:0 0 18px;">Explore the portal</h2>
+      <div style="border-radius:18px; overflow:hidden; border:1.5px solid rgba(21,18,15,0.12); background:#fff; box-shadow:0 16px 50px rgba(70,50,100,0.14);">
+        <div style="display:flex; align-items:center; gap:8px; padding:11px 16px; background:#F3EEE8; border-bottom:1px solid rgba(21,18,15,0.08);">
+          <span style="width:11px; height:11px; border-radius:50%; background:#FF7B72;"></span>
+          <span style="width:11px; height:11px; border-radius:50%; background:#FFCB5C;"></span>
+          <span style="width:11px; height:11px; border-radius:50%; background:#7FD68A;"></span>
+          <span style="margin-left:10px; flex:1; max-width:340px; background:#fff; border-radius:999px; padding:5px 14px; font-family:'Bricolage Grotesque',monospace; font-size:13px; color:#9A8F84;">docs.alfredco.host/#/en/</span>
+        </div>
+        <iframe src="https://docs.alfredco.host/#/en/" title="Alfred Co.Host docs portal" loading="lazy" style="display:block; width:100%; height:520px; border:0; background:#fff;"></iframe>
+      </div>
+      <a href="https://docs.alfredco.host/#/en/" target="_blank" rel="noopener" style="margin-top:18px; display:inline-flex; align-items:center; gap:8px; padding:13px 26px; border-radius:999px; background:#15120F; color:#FCFAF7; font-weight:700; font-size:16px;" style-hover="opacity:0.85;">See widescreen website <span>↗</span></a>
+    </section>
+
+    <!-- separator before Let's talk -->
+    <div data-reveal data-letstalk-sep="" style="margin-top:80px; display:flex; align-items:center; gap:18px;">
+      <span style="flex:1; height:1px; background:linear-gradient(90deg, transparent, rgba(21,18,15,0.16));"></span>
+      <span style="flex:none; width:8px; height:8px; border-radius:50%; background:#7FD6A0;"></span>
+      <span style="flex:1; height:1px; background:linear-gradient(90deg, rgba(21,18,15,0.16), transparent);"></span>
+    </div>
+
+    <section data-reveal="" style="margin-top:44px; padding:44px; border-radius:28px; background:rgba(255,255,255,0.6); backdrop-filter:blur(12px); border:1.5px solid rgba(255,255,255,0.8); box-shadow:0 12px 40px rgba(70,50,100,0.1); text-align:center;">
+      <p style="margin:0 0 8px; font-weight:600; font-size:14px; letter-spacing:0.06em; text-transform:uppercase; color:#6B6157;">Get in touch</p>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(32px,5vw,56px); line-height:1; letter-spacing:-0.03em; margin:0 0 14px;">Let’s talk.</h2>
+      <p style="margin:0 auto 28px; max-width:480px; font-size:17px; line-height:1.55; color:#322C26;">Got a project, a role, or just want to swap kitty pictures and plant-based recipes? I’d love to hear from you.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center;">
+        <a href="mailto:sarahlasaracina@gmail.com" style="display:inline-flex; align-items:center; gap:9px; padding:13px 24px; border-radius:999px; background:#15120F; color:#FCFAF7; font-weight:700; font-size:15px;" style-hover="opacity:0.85;"><span>✉</span> sarahlasaracina@gmail.com</a>
+        <a href="https://www.linkedin.com/in/sarah-lasaracina-7a2235a7/?locale=en" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:9px; padding:13px 24px; border-radius:999px; background:rgba(255,255,255,0.7); border:1.5px solid #15120F; font-weight:700; font-size:15px;">LinkedIn <span>↗</span></a>
+        <a href="https://calendar.app.google/tcqRr4WiW6FZiQCq7" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:9px; padding:13px 24px; border-radius:999px; background:rgba(255,255,255,0.7); border:1.5px solid #15120F; font-weight:700; font-size:15px;"><span>📅</span> Meet me on lunch break <span>↗</span></a>
+      </div>
+    </section>
+
+    <footer style="margin-top:80px; padding-top:24px; border-top:1px solid rgba(21,18,15,0.12); display:flex; gap:20px; font-size:14px; font-weight:600; color:#6B6157;">
+      <a href="index.dc.html" style="border-bottom:1.5px solid rgba(21,18,15,0.25);">← All work</a>
+      <a href="cv.dc.html" style="border-bottom:1.5px solid rgba(21,18,15,0.25);">Full CV</a>
+    </footer>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;palette&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Rainbow&quot;,&quot;Sunset&quot;,&quot;Cotton candy&quot;,&quot;Citrus&quot;,&quot;Ocean&quot;],&quot;default&quot;:&quot;Rainbow&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;animateBackground&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const palettes = {
+      Rainbow: ['#FFC2D1','#FFE0A8','#FFF6A8','#BFF0C9','#C3DBFF','#DCC6FF'],
+      Sunset: ['#FFD0B8','#FFB8C6','#FFC8A8','#FFE0A8','#FFB0A0','#FFD6C0'],
+      'Cotton candy': ['#FFD1EC','#E3D1FF','#D1E6FF','#FFE0F0','#E8D1FF','#D6F0FF'],
+      Citrus: ['#FFF3A8','#FFD9A8','#D8F5A8','#FFE8A8','#C8F0B0','#FFF0B8'],
+      Ocean: ['#BFF0E8','#BFE0FF','#C8D8FF','#BFF3F0','#D0F0E0','#CFE8FF'],
+    };
+    const name = this.props.palette ?? 'Rainbow';
+    const colors = palettes[name] || palettes.Rainbow;
+    const animate = this.props.animateBackground ?? true;
+    const layout = [
+      { top: '-12%', left: '-6%', size: '46vw', anim: 'blobA', dur: '24s' },
+      { top: '6%', left: '56%', size: '42vw', anim: 'blobB', dur: '30s' },
+      { top: '42%', left: '-12%', size: '40vw', anim: 'blobC', dur: '27s' },
+      { top: '54%', left: '46%', size: '48vw', anim: 'blobA', dur: '33s' },
+      { top: '16%', left: '24%', size: '34vw', anim: 'blobB', dur: '21s' },
+      { top: '74%', left: '14%', size: '38vw', anim: 'blobC', dur: '29s' },
+    ];
+    const blobs = layout.map((b, i) => React.createElement('div', {
+      key: i,
+      style: { position: 'absolute', top: b.top, left: b.left, width: b.size, height: b.size,
+        background: colors[i % colors.length], borderRadius: '50%', filter: 'blur(70px)',
+        opacity: 0.62, mixBlendMode: 'multiply',
+        animation: animate ? `${b.anim} ${b.dur} ease-in-out infinite alternate` : 'none' },
+    }));
+    const background = React.createElement('div', {
+      style: { position: 'fixed', inset: 0, zIndex: 0, overflow: 'hidden', pointerEvents: 'none' },
+    }, ...blobs);
+    return { background };
+  }
+}
+</script>
+</body>
+</html>

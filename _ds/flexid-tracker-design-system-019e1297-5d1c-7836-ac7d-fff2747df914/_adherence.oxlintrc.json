@@ -1,0 +1,230 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "ui_kits/tracker/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Geist|Geist Mono|Inter Tight))/i]",
+        "message": "Font not provided by the design system. Available: Geist, Geist Mono, Inter Tight."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {},
+    "tokens": [
+      "--accent",
+      "--accent-halo",
+      "--accent-hover",
+      "--accent-press",
+      "--accent-ring",
+      "--brand-jira",
+      "--brand-slack",
+      "--brand-transmit",
+      "--canvas",
+      "--d-base",
+      "--d-fast",
+      "--d-instant",
+      "--d-slow",
+      "--detail-w",
+      "--ease",
+      "--fg",
+      "--fg-disabled",
+      "--fg-muted",
+      "--fg-strong",
+      "--fg-subtle",
+      "--font-display",
+      "--font-mono",
+      "--font-sans",
+      "--fs-body",
+      "--fs-cockpit",
+      "--fs-detail",
+      "--fs-meta",
+      "--fs-stat",
+      "--fs-title",
+      "--hairline",
+      "--hairline-strong",
+      "--lh-body",
+      "--lh-cockpit",
+      "--lh-detail",
+      "--lh-meta",
+      "--lh-stat",
+      "--lh-title",
+      "--pri-blocker",
+      "--pri-blocker-bg",
+      "--pri-blocker-glow",
+      "--pri-critical",
+      "--pri-critical-bg",
+      "--pri-major",
+      "--pri-major-bg",
+      "--pri-minor",
+      "--pri-minor-bg",
+      "--pri-trivial",
+      "--pri-trivial-bg",
+      "--r-button",
+      "--r-card",
+      "--r-input",
+      "--r-modal",
+      "--r-pill",
+      "--row-h",
+      "--s-1",
+      "--s-2",
+      "--s-3",
+      "--s-4",
+      "--s-5",
+      "--s-6",
+      "--s-8",
+      "--shadow-modal",
+      "--shadow-popover",
+      "--stat-blocked-bg",
+      "--stat-blocked-fg",
+      "--stat-done-bg",
+      "--stat-done-fg",
+      "--stat-progress-bg",
+      "--stat-progress-fg",
+      "--stat-review-bg",
+      "--stat-review-fg",
+      "--stat-todo-bg",
+      "--stat-todo-fg",
+      "--statsbar-h",
+      "--surface",
+      "--surface-overlay",
+      "--surface-raised",
+      "--tabsbar-h",
+      "--titlebar-h",
+      "--tracking-body",
+      "--tracking-caps",
+      "--tracking-mono",
+      "--tracking-tight"
+    ],
+    "tokenKinds": {
+      "--canvas": "color",
+      "--surface": "color",
+      "--surface-raised": "color",
+      "--surface-overlay": "color",
+      "--hairline": "color",
+      "--hairline-strong": "color",
+      "--fg": "color",
+      "--fg-strong": "color",
+      "--fg-muted": "color",
+      "--fg-subtle": "color",
+      "--fg-disabled": "color",
+      "--accent": "color",
+      "--accent-hover": "color",
+      "--accent-press": "color",
+      "--accent-halo": "color",
+      "--accent-ring": "color",
+      "--pri-blocker": "color",
+      "--pri-blocker-bg": "color",
+      "--pri-blocker-glow": "color",
+      "--pri-critical": "color",
+      "--pri-critical-bg": "color",
+      "--pri-major": "color",
+      "--pri-major-bg": "color",
+      "--pri-minor": "color",
+      "--pri-minor-bg": "color",
+      "--pri-trivial": "color",
+      "--pri-trivial-bg": "color",
+      "--stat-todo-fg": "color",
+      "--stat-todo-bg": "color",
+      "--stat-progress-fg": "color",
+      "--stat-progress-bg": "color",
+      "--stat-review-fg": "color",
+      "--stat-review-bg": "color",
+      "--stat-blocked-fg": "color",
+      "--stat-blocked-bg": "color",
+      "--stat-done-fg": "color",
+      "--stat-done-bg": "color",
+      "--brand-transmit": "color",
+      "--brand-jira": "color",
+      "--brand-slack": "color",
+      "--font-sans": "font",
+      "--font-mono": "font",
+      "--font-display": "font",
+      "--fs-meta": "spacing",
+      "--lh-meta": "spacing",
+      "--fs-body": "spacing",
+      "--lh-body": "spacing",
+      "--fs-detail": "spacing",
+      "--lh-detail": "spacing",
+      "--fs-title": "spacing",
+      "--lh-title": "spacing",
+      "--fs-stat": "spacing",
+      "--lh-stat": "spacing",
+      "--fs-cockpit": "spacing",
+      "--lh-cockpit": "spacing",
+      "--tracking-tight": "font",
+      "--tracking-body": "font",
+      "--tracking-mono": "font",
+      "--tracking-caps": "font",
+      "--s-1": "spacing",
+      "--s-2": "spacing",
+      "--s-3": "spacing",
+      "--s-4": "spacing",
+      "--s-5": "spacing",
+      "--s-6": "spacing",
+      "--s-8": "spacing",
+      "--r-input": "spacing",
+      "--r-button": "spacing",
+      "--r-card": "spacing",
+      "--r-modal": "spacing",
+      "--r-pill": "spacing",
+      "--titlebar-h": "spacing",
+      "--statsbar-h": "spacing",
+      "--tabsbar-h": "spacing",
+      "--row-h": "spacing",
+      "--detail-w": "spacing",
+      "--ease": "other",
+      "--d-instant": "other",
+      "--d-fast": "other",
+      "--d-base": "other",
+      "--d-slow": "other",
+      "--shadow-popover": "shadow",
+      "--shadow-modal": "shadow"
+    },
+    "fontFamilies": [
+      "Geist",
+      "Geist Mono",
+      "Inter Tight"
+    ]
+  }
+}

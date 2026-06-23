@@ -1,0 +1,191 @@
+/* =========================================================================
+   FlexID Tracker — Design Tokens
+   Dark-first. Light values are scoped under [data-theme="light"].
+   Import once at the root: @import "./colors_and_type.css";
+   ========================================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Inter+Tight:wght@500;600;700&display=swap");
+
+:root {
+  /* ---------- Base color scale (cool near-black) -------------------------- */
+  --canvas:           #0B0B0F;
+  --surface:          #131319;
+  --surface-raised:   #1B1B23;
+  --surface-overlay:  #22222C;     /* popovers, menus */
+  --hairline:         #23232C;
+  --hairline-strong:  #2E2E38;
+
+  /* ---------- Foreground -------------------------------------------------- */
+  --fg:               #E7E7EE;
+  --fg-strong:        #FFFFFF;
+  --fg-muted:         #9A9AA7;
+  --fg-subtle:        #5C5C68;
+  --fg-disabled:      #3A3A44;
+
+  /* ---------- Accent (selection / link / focus) -------------------------- */
+  --accent:           #8B7BFF;
+  --accent-hover:     #A498FF;
+  --accent-press:     #7565F2;
+  --accent-halo:      color-mix(in oklab, var(--accent) 18%, transparent);
+  --accent-ring:      color-mix(in oklab, var(--accent) 40%, transparent);
+
+  /* ---------- Priority (the only place color shouts) --------------------- */
+  --pri-blocker:      #FF4D5A;
+  --pri-blocker-bg:   color-mix(in oklab, var(--pri-blocker) 14%, transparent);
+  --pri-blocker-glow: 0 0 0 1px color-mix(in oklab, var(--pri-blocker) 35%, transparent) inset;
+
+  --pri-critical:     #FF8A3D;
+  --pri-critical-bg:  color-mix(in oklab, var(--pri-critical) 12%, transparent);
+
+  --pri-major:        #F5C24A;
+  --pri-major-bg:     color-mix(in oklab, var(--pri-major) 10%, transparent);
+
+  --pri-minor:        #5DA9FF;
+  --pri-minor-bg:     color-mix(in oklab, var(--pri-minor) 10%, transparent);
+
+  --pri-trivial:      #5C5C68;
+  --pri-trivial-bg:   color-mix(in oklab, var(--pri-trivial) 22%, transparent);
+
+  /* ---------- Status (desaturated, dark-mode friendly) ------------------- */
+  --stat-todo-fg:        #B5B5C2;
+  --stat-todo-bg:        #22222C;
+  --stat-progress-fg:    #7FB7FF;
+  --stat-progress-bg:    color-mix(in oklab, var(--stat-progress-fg) 14%, transparent);
+  --stat-review-fg:      #B79CFF;
+  --stat-review-bg:      color-mix(in oklab, var(--stat-review-fg) 14%, transparent);
+  --stat-blocked-fg:     #FF8794;
+  --stat-blocked-bg:     color-mix(in oklab, var(--stat-blocked-fg) 14%, transparent);
+  --stat-done-fg:        #6FCF97;
+  --stat-done-bg:        color-mix(in oklab, var(--stat-done-fg) 14%, transparent);
+
+  /* ---------- Brand marks (used 1×, About panel) ------------------------- */
+  --brand-transmit:   #1B1F3B;     /* Transmit Security navy */
+  --brand-jira:       #2684FF;     /* Atlassian blue, only inside Jira mark */
+  --brand-slack:      #ECB22E;     /* Slack yellow, only inside Slack mark  */
+
+  /* ---------- Type ------------------------------------------------------- */
+  --font-sans: "Geist", -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+  --font-mono: "Geist Mono", "SF Mono", ui-monospace, "JetBrains Mono", Menlo, monospace;
+  --font-display: "Inter Tight", "Geist", sans-serif;
+
+  /* Sizes — px / line-height ratio. Stay dense. */
+  --fs-meta:    11px;     --lh-meta:    14px;   /* timestamps, key counts    */
+  --fs-body:    12px;     --lh-body:    16px;   /* row text, button labels   */
+  --fs-detail:  13px;     --lh-detail:  18px;   /* detail-pane body          */
+  --fs-title:   14px;     --lh-title:   20px;   /* header, modal heading     */
+  --fs-stat:    18px;     --lh-stat:    22px;   /* summary-bar number        */
+  --fs-cockpit: 28px;     --lh-cockpit: 32px;   /* empty-state hero number   */
+
+  --tracking-tight:  -0.015em;
+  --tracking-body:   -0.005em;
+  --tracking-mono:   0;
+  --tracking-caps:   0.04em;
+
+  /* ---------- Spacing (4-based) ----------------------------------------- */
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-8: 32px;
+
+  /* ---------- Radii ------------------------------------------------------ */
+  --r-input:  6px;
+  --r-button: 6px;
+  --r-card:   8px;
+  --r-modal: 12px;
+  --r-pill: 999px;
+
+  /* ---------- Sizes ------------------------------------------------------ */
+  --titlebar-h: 28px;
+  --statsbar-h: 56px;
+  --tabsbar-h:  36px;
+  --row-h:      36px;
+  --detail-w:   320px;
+
+  /* ---------- Easing & duration ----------------------------------------- */
+  --ease:     cubic-bezier(0.2, 0.8, 0.2, 1);
+  --d-instant: 0ms;
+  --d-fast:   80ms;
+  --d-base:  120ms;
+  --d-slow:  180ms;
+
+  /* ---------- Shadows --------------------------------------------------- */
+  --shadow-popover: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-modal:   0 16px 48px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- Light theme override (kept minimal, secondary mode) --------- */
+[data-theme="light"] {
+  --canvas:          #FAFAFB;
+  --surface:         #FFFFFF;
+  --surface-raised:  #F4F4F6;
+  --surface-overlay: #FFFFFF;
+  --hairline:        #ECECEF;
+  --hairline-strong: #DEDEE3;
+  --fg:              #1A1A20;
+  --fg-strong:       #0A0A0E;
+  --fg-muted:        #5C5C68;
+  --fg-subtle:       #9A9AA7;
+  --fg-disabled:     #C8C8CE;
+  --accent:          #6453E8;
+  --accent-hover:    #5544D6;
+  --accent-press:    #4737BC;
+  --accent-halo:     color-mix(in oklab, var(--accent) 8%, transparent);
+}
+
+/* =========================================================================
+   Semantic primitives
+   Use these classnames or copy the rules into your component styles.
+   ========================================================================= */
+
+html, body {
+  background: var(--canvas);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  letter-spacing: var(--tracking-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "ss01", "cv11";
+}
+
+/* Numerics: tabular always */
+.num, .mono, code, kbd {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tracking-mono);
+}
+
+.t-meta    { font-size: var(--fs-meta);    line-height: var(--lh-meta);    color: var(--fg-subtle); }
+.t-body    { font-size: var(--fs-body);    line-height: var(--lh-body);    color: var(--fg); }
+.t-muted   { color: var(--fg-muted); }
+.t-detail  { font-size: var(--fs-detail);  line-height: var(--lh-detail);  color: var(--fg); }
+.t-title   { font-size: var(--fs-title);   line-height: var(--lh-title);   color: var(--fg-strong); font-weight: 600; letter-spacing: var(--tracking-tight); }
+.t-stat    { font-family: var(--font-mono); font-size: var(--fs-stat); line-height: var(--lh-stat); font-variant-numeric: tabular-nums; font-weight: 500; }
+.t-cockpit { font-family: var(--font-display); font-size: var(--fs-cockpit); line-height: var(--lh-cockpit); font-weight: 600; letter-spacing: var(--tracking-tight); }
+.t-caps    { font-size: 10px; line-height: 12px; letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--fg-subtle); font-weight: 500; }
+
+/* Hairlines */
+.hl-bottom { border-bottom: 1px solid var(--hairline); }
+.hl-top    { border-top:    1px solid var(--hairline); }
+.hl-left   { border-left:   1px solid var(--hairline); }
+
+/* Focus ring (keyboard) */
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--accent-ring);
+  border-color: var(--accent);
+}
+
+/* Row hover/selected */
+.row {
+  transition: background-color var(--d-fast) var(--ease);
+}
+.row:hover { background: var(--surface-raised); }
+.row[aria-selected="true"] {
+  background: var(--accent-halo);
+  box-shadow: inset 2px 0 0 0 var(--accent);
+}
