@@ -27,7 +27,28 @@
   @keyframes arrowBob { 0%,100%{transform:translateY(0);} 50%{transform:translateY(5px);} }
   @keyframes badgeFloat { 0%{transform:translateY(0) rotate(-2.5deg);} 100%{transform:translateY(-10px) rotate(2.5deg);} }
   [data-subnav]::-webkit-scrollbar { display:none; }
+  /* ===== Responsive (mobile & tablet) — added ===== */
+  @media (max-width: 1024px) {
+    [style*="grid-template-columns: repeat(3, 1fr)"] { grid-template-columns: repeat(2, 1fr) !important; }
+  }
+  @media (max-width: 700px) {
+    main { padding-left: 18px !important; padding-right: 18px !important; }
+    [style*="grid-template-columns: repeat(2, 1fr)"],
+    [style*="grid-template-columns: repeat(3, 1fr)"],
+    [style*="grid-template-columns: 1fr 1fr"],
+    [style*="grid-template-columns: 1.7fr 1fr"],
+    [style*="grid-template-columns: 170px 1fr"] { grid-template-columns: 1fr !important; }
+    [style*="padding: 56px 60px 64px"] { padding: 26px 20px 34px !important; }
+    [style*="padding: 48px"],
+    [style*="padding: 44px"],
+    [style*="padding: 40px"],
+    [style*="padding: 36px"],
+    [style*="padding: 32px 34px"] { padding: 22px !important; }
+    [style*="height: 179px"] { width: auto !important; height: auto !important; }
+    [data-subnav] { overflow-x: auto !important; }
+  }
 </style>
+<script src="./lightbox.js"></script>
 </helmet>
 
 <div style="position:relative; min-height:100vh; width:100%; overflow:hidden;">
@@ -54,9 +75,7 @@
         <span style="display:inline-flex; align-items:center; gap:8px; padding:8px 16px; border-radius:999px; background:rgba(255,255,255,0.7); border:1.5px solid rgba(255,255,255,0.85); font-weight:600; font-size:14px;"><span style="opacity:0.5;">Languages</span> IT · EN · FR</span>
       </div>
       </div>
-      <a href="https://www.ricetteperpippe.com" target="_blank" rel="noopener" title="ricetteperpippe.com" style="flex:none; align-self:center; margin:0 auto;">
-        <img src="assets/rpp-logo.png" alt="Ricette per Pippe — the apron-cat badge" style="display:block; width:clamp(140px,20vw,190px); height:auto; filter:drop-shadow(0 14px 30px rgba(192,83,42,0.22)); animation:badgeFloat 4.5s ease-in-out infinite alternate;">
-      </a>
+      <img src="assets/rpp-logo.png" alt="Ricette per Pippe — the apron-cat badge" style="flex:none; align-self:center; margin:0 auto; display:block; width:clamp(140px,20vw,190px); height:auto; filter:drop-shadow(0 14px 30px rgba(192,83,42,0.22)); animation:badgeFloat 4.5s ease-in-out infinite alternate;">
     </header>
 
     <!-- SHOWCASE -->

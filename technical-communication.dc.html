@@ -20,7 +20,28 @@
   @keyframes blobB { 0%{transform:translate(0,0) scale(1.1);} 100%{transform:translate(-5vw,5vh) scale(0.95);} }
   @keyframes blobC { 0%{transform:translate(0,0) scale(0.95);} 100%{transform:translate(4vw,-5vh) scale(1.12);} }
   @keyframes fadeUp { 0%{opacity:0; transform:translateY(18px);} 100%{opacity:1; transform:translateY(0);} }
+  /* ===== Responsive (mobile & tablet) — added ===== */
+  @media (max-width: 1024px) {
+    [style*="grid-template-columns: repeat(3, 1fr)"] { grid-template-columns: repeat(2, 1fr) !important; }
+  }
+  @media (max-width: 700px) {
+    main { padding-left: 18px !important; padding-right: 18px !important; }
+    [style*="grid-template-columns: repeat(2, 1fr)"],
+    [style*="grid-template-columns: repeat(3, 1fr)"],
+    [style*="grid-template-columns: 1fr 1fr"],
+    [style*="grid-template-columns: 1.7fr 1fr"],
+    [style*="grid-template-columns: 170px 1fr"] { grid-template-columns: 1fr !important; }
+    [style*="padding: 56px 60px 64px"] { padding: 26px 20px 34px !important; }
+    [style*="padding: 48px"],
+    [style*="padding: 44px"],
+    [style*="padding: 40px"],
+    [style*="padding: 36px"],
+    [style*="padding: 32px 34px"] { padding: 22px !important; }
+    [style*="height: 179px"] { width: auto !important; height: auto !important; }
+    [data-subnav] { overflow-x: auto !important; }
+  }
 </style>
+<script src="./lightbox.js"></script>
 </helmet>
 
 <div style="position:relative; min-height:100vh; width:100%; overflow:hidden;">

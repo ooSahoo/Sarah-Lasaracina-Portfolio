@@ -20,6 +20,16 @@
     [data-sheet] { box-shadow:none !important; margin:0 !important; }
     @page { margin:14mm; }
   }
+  /* ===== Responsive (mobile & tablet) — added ===== */
+  @media (max-width: 700px) {
+    [style*="grid-template-columns: repeat(2, 1fr)"],
+    [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+    [style*="padding: 56px 60px 64px"] { padding: 26px 20px 34px !important; }
+    [style*="padding: 40px 28px 80px"] { padding: 22px 16px 40px !important; }
+    [style*="padding: 48px"],
+    [style*="padding: 44px"],
+    [style*="padding: 36px"] { padding: 22px !important; }
+  }
 </style>
 <template id="__bundler_thumbnail">
   <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -35,6 +45,7 @@
     <rect x="46" y="63" width="16" height="3" rx="1.5" fill="#D8CFC4"/>
   </svg>
 </template>
+<script src="./lightbox.js"></script>
 </helmet>
 
 <div style="max-width:920px; margin:0 auto; padding:40px 28px 80px;">

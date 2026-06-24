@@ -26,7 +26,28 @@
     [data-sheet] { box-shadow:none !important; border:none !important; border-radius:0 !important; margin:0 !important; max-width:none !important; backdrop-filter:none !important; background:#fff !important; padding:0 !important; }
     @page { margin:14mm; }
   }
+  /* ===== Responsive (mobile & tablet) — added ===== */
+  @media (max-width: 1024px) {
+    [style*="grid-template-columns: repeat(3, 1fr)"] { grid-template-columns: repeat(2, 1fr) !important; }
+  }
+  @media (max-width: 700px) {
+    main { padding-left: 18px !important; padding-right: 18px !important; }
+    [style*="grid-template-columns: repeat(2, 1fr)"],
+    [style*="grid-template-columns: repeat(3, 1fr)"],
+    [style*="grid-template-columns: 1fr 1fr"],
+    [style*="grid-template-columns: 1.7fr 1fr"],
+    [style*="grid-template-columns: 170px 1fr"] { grid-template-columns: 1fr !important; }
+    [style*="padding: 56px 60px 64px"] { padding: 26px 20px 34px !important; }
+    [style*="padding: 48px"],
+    [style*="padding: 44px"],
+    [style*="padding: 40px"],
+    [style*="padding: 36px"],
+    [style*="padding: 32px 34px"] { padding: 22px !important; }
+    [style*="height: 179px"] { width: auto !important; height: auto !important; }
+    [data-subnav] { overflow-x: auto !important; }
+  }
 </style>
+<script src="./lightbox.js"></script>
 </helmet>
 
 <div style="position:relative; min-height:100vh; width:100%; overflow:hidden;">
@@ -40,7 +61,7 @@
 
     <section data-print="hide" style="margin-bottom:24px; display:grid; grid-template-columns:170px 1fr; gap:34px; align-items:center; background:rgba(255,255,255,0.7); backdrop-filter:blur(12px); border:1.5px solid rgba(255,255,255,0.85); border-radius:24px; box-shadow:0 20px 60px rgba(70,50,100,0.12); padding:36px;">
       <div style="width:170px; height:170px; border-radius:50%; overflow:hidden; position:relative; background:linear-gradient(135deg,#FFD9E8,#E0D1FF 45%,#C8E8FF); box-shadow:0 12px 30px rgba(60,40,90,0.16); border:4px solid #fff;">
-        <img src="assets/portrait.png" alt="Sarah Lasaracina" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
+        <img data-no-zoom src="assets/portrait.png" alt="Sarah Lasaracina" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;">
       </div>
       <div>
         <p style="margin:0 0 8px; font-weight:600; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:#6B6157;">The human behind the CV</p>

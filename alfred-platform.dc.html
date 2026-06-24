@@ -21,7 +21,28 @@
   @keyframes blobC { 0%{transform:translate(0,0) scale(0.95);} 100%{transform:translate(4vw,-5vh) scale(1.12);} }
   @keyframes fadeUp { 0%{opacity:0; transform:translateY(18px);} 100%{opacity:1; transform:translateY(0);} }
   @keyframes logoFloat { 0%{transform:translateY(0);} 100%{transform:translateY(-9px);} }
+  /* ===== Responsive (mobile & tablet) — added ===== */
+  @media (max-width: 1024px) {
+    [style*="grid-template-columns: repeat(3, 1fr)"] { grid-template-columns: repeat(2, 1fr) !important; }
+  }
+  @media (max-width: 700px) {
+    main { padding-left: 18px !important; padding-right: 18px !important; }
+    [style*="grid-template-columns: repeat(2, 1fr)"],
+    [style*="grid-template-columns: repeat(3, 1fr)"],
+    [style*="grid-template-columns: 1fr 1fr"],
+    [style*="grid-template-columns: 1.7fr 1fr"],
+    [style*="grid-template-columns: 170px 1fr"] { grid-template-columns: 1fr !important; }
+    [style*="padding: 56px 60px 64px"] { padding: 26px 20px 34px !important; }
+    [style*="padding: 48px"],
+    [style*="padding: 44px"],
+    [style*="padding: 40px"],
+    [style*="padding: 36px"],
+    [style*="padding: 32px 34px"] { padding: 22px !important; }
+    [style*="height: 179px"] { width: auto !important; height: auto !important; }
+    [data-subnav] { overflow-x: auto !important; }
+  }
 </style>
+<script src="./lightbox.js"></script>
 </helmet>
 
 <div style="position:relative; min-height:100vh; width:100%; overflow:hidden;">
@@ -84,7 +105,7 @@
     </section>
 
     <div id="tab-anchor" style="height:1px; margin-top:48px;"></div>
-    <nav id="tab-nav" style="position:sticky; top:10px; z-index:8; display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px; padding:7px 10px; border-radius:999px; background:rgba(252,250,247,0.78); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border:1.5px solid rgba(255,255,255,0.85); box-shadow:0 6px 24px rgba(70,50,100,0.12);">
+    <nav id="tab-nav" style="position:sticky; top:10px; z-index:8; display:flex; flex-wrap:wrap; gap:6px; padding:6px; border-radius:18px; background:rgba(252,250,247,0.78); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border:1.5px solid rgba(255,255,255,0.85); box-shadow:0 6px 24px rgba(70,50,100,0.12);">
       <button type="button" onClick="{{ goDo }}" style="{{ tabDoStyle }}">What users do</button>
       <button type="button" onClick="{{ goChallenges }}" style="{{ tabChallengesStyle }}">Challenges</button>
       <button type="button" onClick="{{ goVisual }}" style="{{ tabVisualStyle }}">Visual identity</button>
@@ -217,7 +238,7 @@
           <p style="margin:0; font-size:16px; line-height:1.65; color:#322C26; text-wrap:pretty;">The most deliberate Information Architecture decision was flattening navigation. Five main clusters — Dashboard, Property management, Calendar, Integrations, Documentation — reachable from the side drawer with no sub-menu hierarchy. No three-level paths, no “Settings &gt; Property &gt; Channel &gt; Advanced.” The complexity exists, but it’s handled inside each cluster, not through navigation. A host juggling three properties shouldn’t have to remember where things are — they should find them by instinct the first time and by muscle memory the second.</p>
           <figure style="margin:18px 0 0;">
             <div style="border-radius:14px; overflow:hidden; border:1.5px solid rgba(255,255,255,0.85); background:#15120F; box-shadow:0 8px 28px rgba(70,50,100,0.12);">
-              <video src="assets/decision-flat-nav.mp4" poster="assets/poster-flat-nav.png" autoplay controls preload="auto" playsinline muted loop style="display:block; width:100%; height:auto; background:#15120F;"></video>
+              <video src="assets/decision-flat-nav.mp4" poster="assets/poster-flat-nav.png" autoplay preload="auto" playsinline muted loop style="display:block; width:100%; height:auto; background:#15120F;"></video>
             </div>
           </figure>
         </div></sc-if>
@@ -270,7 +291,7 @@
           <p style="margin:0; font-size:16px; line-height:1.65; color:#322C26; text-wrap:pretty;">The strength of the KB isn’t the volume of information but the granularity of the items — each field is a self-contained molecule. Alfred doesn’t need paragraphs, it needs precise, well-isolated facts; the prompt does the contextualising. Even a host who fills in three fields gets a working chatbot.</p>
           <figure style="margin:18px 0 0;">
             <div style="border-radius:14px; overflow:hidden; border:1.5px solid rgba(255,255,255,0.85); background:#15120F; box-shadow:0 8px 28px rgba(70,50,100,0.12);">
-              <video src="assets/decision-kb-editor.mp4" poster="assets/poster-kb-editor.png" autoplay controls preload="auto" playsinline muted loop style="display:block; width:100%; height:auto; background:#15120F;"></video>
+              <video src="assets/decision-kb-editor.mp4" poster="assets/poster-kb-editor.png" autoplay preload="auto" playsinline muted loop style="display:block; width:100%; height:auto; background:#15120F;"></video>
             </div>
           </figure>
         </div></sc-if>
@@ -467,10 +488,10 @@ class Component extends DCLogic {
       style: { position: 'fixed', inset: 0, zIndex: 0, overflow: 'hidden', pointerEvents: 'none' },
     }, ...blobs);
     const active = this.state.activeTab || 'do';
-    const tabBase = "padding:9px 18px; border:1.5px solid transparent; border-radius:999px; font-family:'Hanken Grotesk',sans-serif; font-weight:700; font-size:15px; cursor:pointer; white-space:nowrap; transition:background 140ms,color 140ms;";
+    const tabBase = "margin:0; padding:8px 15px; border:1.5px solid transparent; border-radius:999px; font-family:'Hanken Grotesk',sans-serif; font-weight:700; font-size:14.5px; cursor:pointer; white-space:nowrap; transition:background 140ms,color 140ms;";
     const styleFor = (id) => tabBase + (active === id
-      ? 'background:#15120F; color:#FCFAF7;'
-      : 'background:transparent; color:#322C26;');
+      ? 'background:#15120F; color:#FCFAF7; border-color:#15120F;'
+      : 'background:rgba(255,255,255,0.55); color:#322C26;');
     const goTo = (id) => () => {
       this.setState({ activeTab: id });
       requestAnimationFrame(() => {
