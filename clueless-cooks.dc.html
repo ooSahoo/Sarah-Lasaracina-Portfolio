@@ -27,7 +27,28 @@
   @keyframes arrowBob { 0%,100%{transform:translateY(0);} 50%{transform:translateY(5px);} }
   @keyframes badgeFloat { 0%{transform:translateY(0) rotate(-2.5deg);} 100%{transform:translateY(-10px) rotate(2.5deg);} }
   [data-subnav]::-webkit-scrollbar { display:none; }
+  /* ===== Responsive (mobile & tablet) — added ===== */
+  @media (max-width: 1024px) {
+    [style*="grid-template-columns: repeat(3, 1fr)"] { grid-template-columns: repeat(2, 1fr) !important; }
+  }
+  @media (max-width: 700px) {
+    main { padding-left: 18px !important; padding-right: 18px !important; }
+    [style*="grid-template-columns: repeat(2, 1fr)"],
+    [style*="grid-template-columns: repeat(3, 1fr)"],
+    [style*="grid-template-columns: 1fr 1fr"],
+    [style*="grid-template-columns: 1.7fr 1fr"],
+    [style*="grid-template-columns: 170px 1fr"] { grid-template-columns: 1fr !important; }
+    [style*="padding: 56px 60px 64px"] { padding: 26px 20px 34px !important; }
+    [style*="padding: 48px"],
+    [style*="padding: 44px"],
+    [style*="padding: 40px"],
+    [style*="padding: 36px"],
+    [style*="padding: 32px 34px"] { padding: 22px !important; }
+    [style*="height: 179px"] { width: auto !important; height: auto !important; }
+    [data-subnav] { overflow-x: auto !important; }
+  }
 </style>
+<script src="./lightbox.js"></script>
 </helmet>
 
 <div style="position:relative; min-height:100vh; width:100%; overflow:hidden;">
