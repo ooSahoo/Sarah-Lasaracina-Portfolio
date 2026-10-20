@@ -7,25 +7,27 @@ You can find below a curated selection of public work samples, grouped by projec
 
 ### Public product demo
 
-[Alfred Hospitality AI demo](https://alfred-demo-sarah-lasaracina.netlify.app/)
-
-This is a public demo of Alfred Hospitality AI which I designed entirely and authored.  
+This is a public demo of Alfred Hospitality AI, which I fully designed and authored.  
 You can open the link, navigate the interface, and explore the product experience directly.
 
-### UX and documentation analysis
+[Alfred Hospitality AI demo](https://alfred-demo-sarah-lasaracina.netlify.app/)
 
-- **Portfolio**: [Alfred platform UX analysis](https://sarahlasaracina.com/alfred-platform.dc.html)
+### UX analysis
+
+This page explains the product structure, UX decisions, and information architecture behind the Alfred platform.
+
+**Portfolio**: [Alfred platform UX analysis](https://sarahlasaracina.com/alfred-platform.dc.html)
 
 ### Product documentation
 
+This documentation is written for users between 25 and 65 years old, with good but not excellent English skills, often as non-native speakers.  
+It supports Alfred users with a focus on clarity, task completion, and accessible product guidance.
+
 [Alfred documentation](https://docs.alfredco.host/#/en/)
 
-This documentation is written for users between 25 and 65 years old, with good but not excellent English skills, often as non-native speakers.  
-The documentation supports Alfred users, with a focus on clarity, task completion, and accessible product guidance.
+### Documentation analysis
 
-### UX and documentation analysis
-
-This page provides additional context on the UX choices, documentation structure, and information architecture behind the Alfred platform and its docs.
+This page provides additional context on the documentation structure, audience needs, and information architecture behind the Alfred docs.
 
 **Portfolio**: [Alfred documentation UX analysis](https://sarahlasaracina.com/alfred-docs.dc.html)
 
@@ -35,6 +37,7 @@ This page provides additional context on the UX choices, documentation structure
 
 ### Content sample
 
+This is an example from my personal recipe blog.  
 The tone of voice is intentionally self-deprecating and playful, with ironic touches designed for readers who may not feel confident in the kitchen.
 
 [Crème caramel cake recipe](https://ricetteperpippe.com/en/blog/torta-creme-caramel-super-safe/)
@@ -55,7 +58,6 @@ This is a sample from the Transmit Security developer documentation.
 The target audience is C1-level backend developers, and the page demonstrates technical communication skills for a cybersecurity and identity management product.
 
 [Risk detection and mitigation flow](https://developer.transmitsecurity.com/guides/risk/risk_detection_mitigation_flow_c)
-
 
 ### Technical communication analysis
 
