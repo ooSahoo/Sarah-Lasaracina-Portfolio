@@ -2,6 +2,9 @@
 <html>
 <head>
 <meta charset="utf-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
 </head>
@@ -26,6 +29,33 @@
     [data-sheet] { box-shadow:none !important; border:none !important; border-radius:0 !important; margin:0 !important; max-width:none !important; backdrop-filter:none !important; background:#fff !important; padding:0 !important; }
     @page { margin:14mm; }
   }
+  /* ===== CV focus switcher ===== */
+  [data-cv-exp] { display:flex; flex-direction:column; gap:30px; }
+  [data-cv-exp] > h2 { margin-bottom:-10px !important; }
+  [data-group] { margin-bottom:0 !important; }
+  /* Product management always follows the lead group */
+  [data-group="design"] { order:1; } [data-group="pm"] { order:2; } [data-group="writing"] { order:3; }
+  html[data-focus="writing"] [data-group="writing"] { order:1; }
+  html[data-focus="writing"] [data-group="design"] { order:3; }
+  [data-sub="writing"] { display:none; }
+  html[data-focus="writing"] [data-sub="writing"] { display:inline; }
+  html[data-focus="writing"] [data-sub="design"] { display:none; }
+  @keyframes switchPulse { 0%{box-shadow:0 0 0 0 rgba(122,85,214,0.45);} 100%{box-shadow:0 0 0 14px rgba(122,85,214,0);} }
+  [data-switch] { position:relative; display:grid; grid-template-columns:1fr 1fr; padding:4px; border-radius:999px; background:#F1ECE6; animation:switchPulse 1.6s ease-out 0.8s 3; }
+  [data-switch-thumb] { position:absolute; top:4px; bottom:4px; left:4px; width:calc(50% - 4px); border-radius:999px; background:#5B97F0; box-shadow:0 4px 14px rgba(40,30,70,0.18); transition:transform 0.45s cubic-bezier(0.65,0,0.35,1), background 0.45s; }
+  html[data-focus="writing"] [data-switch-thumb] { transform:translateX(100%); background:#3FA86A; }
+  [data-opt] { position:relative; z-index:1; display:inline-flex; align-items:center; justify-content:center; gap:7px; padding:10px 18px; border:none; background:none; border-radius:999px; cursor:pointer; font-family:inherit; font-weight:700; font-size:14px; color:#6B6157; white-space:nowrap; transition:color 0.3s; }
+  [data-opt]:hover { color:#15120F; }
+  html:not([data-focus="writing"]) [data-opt="design"], html[data-focus="writing"] [data-opt="writing"] { color:#fff; }
+  [data-opt]:focus-visible, [data-dl] summary:focus-visible, [data-dl-opt]:focus-visible { outline:2px solid #7A55D6; outline-offset:2px; }
+  [data-dl] summary { list-style:none; }
+  [data-dl] summary::-webkit-details-marker { display:none; }
+  [data-dl][open] [data-dl-caret] { transform:rotate(180deg); }
+  [data-dl-menu] { position:absolute; right:0; top:calc(100% + 8px); z-index:20; min-width:250px; display:flex; flex-direction:column; gap:4px; padding:6px; border-radius:16px; background:#fff; border:1.5px solid rgba(21,18,15,0.08); box-shadow:0 18px 40px rgba(40,30,70,0.18); animation:fadeDown 0.18s ease-out; }
+  @keyframes fadeDown { 0%{opacity:0; transform:translateY(-6px);} 100%{opacity:1; transform:none;} }
+  [data-dl-opt] { display:flex; align-items:center; gap:10px; width:100%; padding:10px 12px; border:none; border-radius:11px; background:none; cursor:pointer; font-family:inherit; font-weight:600; font-size:14px; color:#15120F; text-align:left; }
+  [data-dl-opt]:hover { background:#F4EFE9; }
+  html:not([data-focus="writing"]) [data-dl-opt="design"], html[data-focus="writing"] [data-dl-opt="writing"] { background:#F4EFE9; }
   /* ===== Responsive (mobile & tablet) — added ===== */
   @media (max-width: 1024px) {
     [style*="grid-template-columns: repeat(3, 1fr)"] { grid-template-columns: repeat(2, 1fr) !important; }
@@ -57,18 +87,29 @@
     #profile { order: 1 !important; }
     aside { order: 2 !important; }
     [data-cv-exp] { order: 3 !important; }
+    /* CV: compact focus switcher */
+    [data-focus-label] { display:none !important; }
+    [data-focus-bar] { justify-content:center !important; padding:6px !important; }
+    [data-switch] { width:100%; }
+    [data-opt] { padding:9px 8px; font-size:12.5px; white-space:normal; line-height:1.2; }
   }
 </style>
 <script src="./lightbox.js"></script>
 </helmet>
 
-<div style="position:relative; min-height:100vh; width:100%; overflow:hidden;">
+<div style="position:relative; min-height:100vh; width:100%; overflow:clip;">
   <div data-print="hide">{{ background }}</div>
   <main style="position:relative; z-index:1; max-width:920px; margin:0 auto; padding:24px 24px 80px;">
 
     <nav data-print="hide" style="display:flex; align-items:center; justify-content:space-between; padding:8px 0 28px;">
       <a href="index.dc.html" style="display:inline-flex; align-items:center; gap:8px; font-weight:600; font-size:15px;" style-hover="opacity:0.6;"><span>←</span> Back to portfolio</a>
-      <button onclick="{{ printCv }}" style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; border-radius:999px; background:#15120F; color:#FCFAF7; border:none; cursor:pointer; font-family:inherit; font-weight:700; font-size:15px;">Print / Save PDF <span>↓</span></button>
+      <details data-dl style="position:relative;">
+        <summary style="display:inline-flex; align-items:center; gap:8px; padding:10px 20px; border-radius:999px; background:#15120F; color:#FCFAF7; cursor:pointer; font-weight:700; font-size:15px;">Download full CV <span data-dl-caret style="display:inline-block; transition:transform 0.2s;">▾</span></summary>
+        <div data-dl-menu>
+          <button type="button" data-dl-opt="design" onclick="{{ printDesign }}"><span style="width:9px; height:9px; border-radius:50%; background:#5B97F0; flex:none;"></span>Design experiences first</button>
+          <button type="button" data-dl-opt="writing" onclick="{{ printWriting }}"><span style="width:9px; height:9px; border-radius:50%; background:#3FA86A; flex:none;"></span>Tech writing experiences first</button>
+        </div>
+      </details>
     </nav>
 
     <section data-print="hide" style="margin-bottom:24px; display:grid; grid-template-columns:170px 1fr; gap:34px; align-items:center; background:rgba(255,255,255,0.7); backdrop-filter:blur(12px); border:1.5px solid rgba(255,255,255,0.85); border-radius:24px; box-shadow:0 20px 60px rgba(70,50,100,0.12); padding:36px;">
@@ -78,18 +119,27 @@
       <div>
         <p style="margin:0 0 8px; font-weight:600; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:#6B6157;">The human behind the CV</p>
         <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(28px,4vw,40px); line-height:1; letter-spacing:-0.02em; margin:0 0 14px;">A bit about me</h2>
-        <p style="margin:0 0 20px; font-size:16px; line-height:1.6; color:#322C26; max-width:52ch;">I’m Sarah — born and based in Bari, on Italy’s sunny heel. I finished my studies and kicked off my career in France before going fully remote during the pandemic, which is probably why I’m happiest switching between languages, cultures and disciplines. I’m a proud cat mom 🐱, my idea of a perfect night out is karaoke or a musical show 🎤, and I only really discovered the joy of cooking when I went meat-free and started moving towards 🌱 — that’s where <a href="clueless-cooks.dc.html" style="border-bottom:1.5px solid rgba(21,18,15,0.3); font-weight:600;" style-hover="opacity:0.7;">the clueless cook</a> began. More than anything, in every corner of life I keep coming back to the same belief: how much communication and people’s experience matter to building a society that’s easier to live in and more equitable. Empathy, listening and stepping into other people’s shoes, paired with a genuine interest in technology and understanding innovation — I think that’s the real core of my profile, and it’s what professionally led me to product and UX the long way round, through words.</p>
+        <p style="margin:0 0 20px; font-size:16px; line-height:1.6; color:#322C26; max-width:52ch;">I’m Sarah — born and based in Bari, on Italy’s sunny heel. I finished my studies and kicked off my career in France before going fully remote during the pandemic, which is probably why I’m happiest switching between languages, cultures and disciplines. I’m a proud cat mom 🐱, my idea of a perfect night out is karaoke or a musical show 🎤, and I only really discovered the joy of cooking when I went meat-free and started moving towards 🌱 — that’s where <a href="clueless-cooks.dc.html" style="border-bottom:1.5px solid rgba(21,18,15,0.3); font-weight:600;" style-hover="opacity:0.7;">the clueless cook</a> began. More than anything, in every corner of life I keep coming back to the same belief: how much communication and people’s experience matter to building a society that’s easier to live in and more equitable. Empathy, listening and stepping into other people’s shoes, paired with a genuine interest in technology and understanding innovation — that’s what connects my work in technical writing and product &amp; UX design.</p>
         <a href="#profile" style="display:inline-flex; align-items:center; gap:8px; padding:12px 24px; border-radius:999px; background:#15120F; color:#FCFAF7; font-weight:700; font-size:15px; white-space:nowrap;" style-hover="opacity:0.85;">Go to my professional CV <span>↓</span></a>
       </div>
     </section>
+
+    <div data-print="hide" data-focus-bar style="position:sticky; top:12px; z-index:10; margin-bottom:18px; display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; padding:8px 8px 8px 22px; border-radius:999px; background:linear-gradient(rgba(255,255,255,0.9),rgba(255,255,255,0.9)) padding-box, linear-gradient(90deg,#FF9EBB,#FFC97A,#F5E06A,#8EDBA5,#8DB8FF,#B79BFF) border-box; backdrop-filter:blur(12px); border:2px solid transparent; box-shadow:0 10px 30px rgba(70,50,100,0.12);">
+      <span data-focus-label style="font-weight:600; font-size:14px; color:#15120F;">Hiring for design or for docs? Pick what you see first</span>
+      <div data-switch role="radiogroup" aria-label="Experience order">
+        <span data-switch-thumb aria-hidden="true"></span>
+        <button type="button" role="radio" data-opt="design" onclick="{{ focusDesign }}">Design experiences first</button>
+        <button type="button" role="radio" data-opt="writing" onclick="{{ focusWriting }}">Tech writing experiences first</button>
+      </div>
+    </div>
 
     <article data-sheet="" style="background:rgba(255,255,255,0.8); backdrop-filter:blur(12px); border:1.5px solid rgba(255,255,255,0.85); border-radius:24px; box-shadow:0 20px 60px rgba(70,50,100,0.14); padding:48px;">
 
       <header style="border-bottom:2px solid #15120F; padding-bottom:24px; margin-bottom:28px;">
         <h1 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:clamp(36px,5.5vw,56px); line-height:0.98; letter-spacing:-0.03em; margin:0;">Sarah Lasaracina</h1>
-        <p style="margin:10px 0 0; font-weight:600; font-size:17px; color:#6B6157;">Technical writer · UX &amp; prompt design · Product design · Cybersecurity · Hospitality SaaS</p>
+        <p style="margin:10px 0 0; font-weight:600; font-size:17px; color:#6B6157;"><span data-sub="design">Product &amp; UX designer · Senior technical writer · Prompt design · Cybersecurity · Hospitality SaaS</span><span data-sub="writing">Senior technical writer · Product &amp; UX designer · Prompt design · Cybersecurity · Hospitality SaaS</span></p>
         <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:16px; font-size:14px; font-weight:600; color:#322C26;">
-          <a href="mailto:sarahlasaracina@gmail.com" style="border-bottom:1.5px solid rgba(21,18,15,0.3);">sarahlasaracina@gmail.com</a>
+          <!--email_off--><a href="mailto:sarahlasaracina@gmail.com" style="border-bottom:1.5px solid rgba(21,18,15,0.3);">sarahlasaracina@gmail.com</a><!--/email_off-->
           <span style="color:#C9BFB4;">·</span>
           <span>Bari, Apulia, Italy</span>
           <span style="color:#C9BFB4;">·</span>
@@ -106,13 +156,13 @@
         <div data-cv-left>
           <section id="profile" style="margin-bottom:30px; scroll-margin-top:24px;">
             <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:14px; letter-spacing:0.08em; text-transform:uppercase; color:#6B6157; margin:0 0 12px;">Profile</h2>
-            <p style="margin:0; font-size:15px; line-height:1.65; color:#322C26;">I turn complex systems into experiences people can actually use. Nine years in technical communication taught me how people really read, click and get unstuck — and that curiosity pulled me into UX, where I now shape the whole experience, not just the words around it. I’ve worked across cybersecurity, healthcare, finance and hospitality AI, most recently designing the Alfred Hospitality AI platform end to end, from the first research to subscription flows and documentation. I love the messy middle where product, UX and content meet — and I lean on AI to get from idea to a working interface fast.</p>
+            <p style="margin:0; font-size:15px; line-height:1.65; color:#322C26;">Senior technical writer with nine years of experience in technical communication across cybersecurity, healthcare and finance. My expertise spans developer guides, API and SDK references, information architecture and docs-as-code workflows. At Transmit Security, I own the Mosaic developer portal and work with product and engineering to clarify behavior, structure integration paths and keep documentation aligned with releases. My product &amp; UX design experience includes designing the Alfred Hospitality AI platform end to end, from user research and interaction design to subscription flows and usability testing. Working across documentation and product design helps me connect how people learn a product with how they use it.</p>
           </section>
 
           <section data-cv-exp>
             <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:14px; letter-spacing:0.08em; text-transform:uppercase; color:#6B6157; margin:0 0 20px;">Experience</h2>
 
-            <div style="margin-bottom:30px;">
+            <div data-group="design" style="margin-bottom:30px;">
               <div style="display:flex; align-items:center; gap:12px; margin:0 0 20px;">
                 <h3 style="display:inline-flex; align-items:center; gap:8px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:15px; letter-spacing:0.03em; text-transform:uppercase; white-space:nowrap; margin:0; padding:7px 15px; border-radius:999px; background:#E1EEFF; color:#15120F;"><span style="width:9px; height:9px; border-radius:50%; background:#5B97F0;"></span>UX / UI design</h3>
                 <span style="flex:1; height:3px; border-radius:3px; background:#5B97F0; opacity:0.35;"></span>
@@ -134,7 +184,7 @@
               <div style="margin-top:20px;">
                 <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
                   <h4 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; margin:0;">Documentation portal — UX, IA &amp; visual identity</h4>
-                  <span style="font-size:13px; font-weight:600; color:#6B6157; white-space:nowrap;">2023 – present</span>
+                  <span style="font-size:13px; font-weight:600; color:#6B6157; white-space:nowrap;">2023 – 2026</span>
                 </div>
                 <p style="margin:2px 0 8px; font-weight:600; font-size:15px; color:#5A8A6B;">Alfred Co.host · docs.alfredco.host</p>
                 <ul style="margin:0; padding-left:18px; font-size:14px; line-height:1.6; color:#322C26;">
@@ -144,9 +194,23 @@
                 </ul>
                 <a href="alfred-docs.dc.html" style="display:inline-flex; align-items:center; gap:6px; margin-top:10px; font-weight:700; font-size:13px; color:#5B97F0;" style-hover="opacity:0.7;">See the case study <span>→</span></a>
               </div>
+
+              <div style="margin-top:20px;">
+                <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+                  <h4 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; margin:0;">Recipe blog — concept, UX, content &amp; build</h4>
+                  <span style="font-size:13px; font-weight:600; color:#6B6157; white-space:nowrap;">2025 – present</span>
+                </div>
+                <p style="margin:2px 0 8px; font-weight:600; font-size:15px; color:#5A8A6B;">Clueless Cooks · ricetteperpippe.com</p>
+                <ul style="margin:0; padding-left:18px; font-size:14px; line-height:1.6; color:#322C26;">
+                  <li>Designed a trilingual (IT/EN/FR) recipe blog for beginner cooks, built to cut mental load and performance anxiety: a playful voice on top of strictly structured information.</li>
+                  <li>Structured recipes like technical documentation: tools and real amounts up front (no “to taste”), amounts repeated in each step, tap-to-check steps, prescriptive and reassuring microcopy, and shopping tips for plant-based products.</li>
+                  <li>Localized by culture, not just language (course categories, implied steps, grams and ounces), and built the end-to-end content pipeline with Claude Code and Codex: Python scripts, custom Claude skills for localization and Instagram captions, Astro, Netlify, Supabase, n8n, GitHub Actions.</li>
+                </ul>
+                <a data-print="hide" href="clueless-cooks.dc.html" style="display:inline-flex; align-items:center; gap:6px; margin-top:10px; font-weight:700; font-size:13px; color:#5B97F0;" style-hover="opacity:0.7;">See the case study <span>→</span></a>
+              </div>
             </div>
 
-            <div style="margin-bottom:30px;">
+            <div data-group="writing" style="margin-bottom:30px;">
               <div style="display:flex; align-items:center; gap:12px; margin:0 0 20px;">
                 <h3 style="display:inline-flex; align-items:center; gap:8px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:15px; letter-spacing:0.03em; text-transform:uppercase; white-space:nowrap; margin:0; padding:7px 15px; border-radius:999px; background:#DCF4E6; color:#15120F;"><span style="width:9px; height:9px; border-radius:50%; background:#3FA86A;"></span>Technical writing &amp; communication</h3>
                 <span style="flex:1; height:3px; border-radius:3px; background:#3FA86A; opacity:0.32;"></span>
@@ -158,10 +222,17 @@
                   <span style="font-size:13px; font-weight:600; color:#6B6157; white-space:nowrap;">Sep 2023 – present</span>
                 </div>
                 <p style="margin:2px 0 8px; font-weight:600; font-size:15px; color:#5A8A6B;">Transmit Security · Tel Aviv District (remote)</p>
+                <p style="margin:0 0 8px; font-size:14px; line-height:1.6; color:#322C26;">Developer documentation for Mosaic, Transmit Security’s customer identity and access management (CIAM) platform, published on the public developer portal.</p>
                 <ul style="margin:0; padding-left:18px; font-size:14px; line-height:1.6; color:#322C26;">
-                  <li>Own developer documentation for the Mosaic identity platform — authentication &amp; identity orchestration, API integrations, SDKs (Web, iOS, Android) and security workflows.</li>
-                  <li>Document complex IAM capabilities: OAuth/OIDC, SSO, passkeys, risk-based auth, identity verification and journey-based orchestration.</li>
-                  <li>Work in a Docs-as-Code workflow (Markdown, Git/GitHub, reviews, automated publishing), hands-on with the product alongside Engineering, Product and UX.</li>
+                  <li>Own the developer portal as a product: information architecture, navigation, redirects, site configuration, and custom components. Restructure documentation to follow product redesigns, such as the move to an application/client model with use-case-driven implementation paths.</li>
+                  <li>Write and maintain guides, how-to procedures, and reference for identity orchestration (journeys), user and application management, SSO and federation, B2B identity, passkeys/WebAuthn, identity verification, and automated workflows.</li>
+                  <li>Document Mosaic Fraud Prevention, covering integration quick starts for web, mobile, and CDN/edge platforms, risk recommendations, rules, the feedback loop, and API security.</li>
+                  <li>Document Agent Intelligence, a new capability for monitoring AI agent activity in customer-facing applications, from launch: product overview, traffic and session analysis, and integrations through SDK, Akamai, Cloudflare, and Google Tag Manager.</li>
+                  <li>Maintain API reference (OpenAPI) and SDK reference for web and mobile.</li>
+                  <li>Work docs-as-code: Markdown, YAML, Redocly, Git/GitHub, pull request review.</li>
+                  <li>Turn product specs, Figma prototypes, and Jira tickets into documentation, and work with PMs and R&amp;D to clarify product behavior and terminology before release.</li>
+                  <li>Enforce templates, terminology, and style consistency across the portal, and flag UI microcopy issues to product.</li>
+                  <li>Design and maintain AI-assisted documentation tooling (Claude skills and automations) for writing to the style guide, reviewing pull requests, analyzing product code, and tracking which features need documentation before each release.</li>
                 </ul>
                 <a href="technical-communication.dc.html" style="display:inline-flex; align-items:center; gap:6px; margin-top:10px; font-weight:700; font-size:13px; color:#3FA86A;" style-hover="opacity:0.7;">See the case study <span>→</span></a>
               </div>
@@ -226,7 +297,7 @@
               </div>
             </div>
 
-            <div>
+            <div data-group="pm">
               <div style="display:flex; align-items:center; gap:12px; margin:0 0 20px;">
                 <h3 style="display:inline-flex; align-items:center; gap:8px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:15px; letter-spacing:0.03em; text-transform:uppercase; white-space:nowrap; margin:0; padding:7px 15px; border-radius:999px; background:#FFE0EC; color:#15120F;"><span style="width:9px; height:9px; border-radius:50%; background:#F0689A;"></span>Product management</h3>
                 <span style="flex:1; height:3px; border-radius:3px; background:#F0689A; opacity:0.35;"></span>
@@ -312,7 +383,7 @@
   </main>
 </div>
 </x-dc>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script data-props="{&quot;palette&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Rainbow&quot;,&quot;Sunset&quot;,&quot;Cotton candy&quot;,&quot;Citrus&quot;,&quot;Ocean&quot;],&quot;default&quot;:&quot;Rainbow&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;animateBackground&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;palette&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Rainbow&quot;,&quot;Sunset&quot;,&quot;Cotton candy&quot;,&quot;Citrus&quot;,&quot;Ocean&quot;],&quot;default&quot;:&quot;Rainbow&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;animateBackground&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
   renderVals() {
     const palettes = {
@@ -343,7 +414,47 @@ class Component extends DCLogic {
     const background = React.createElement('div', {
       style: { position: 'fixed', inset: 0, zIndex: 0, overflow: 'hidden', pointerEvents: 'none' },
     }, ...blobs);
-    return { background, printCv: () => window.print() };
+    const root = document.documentElement;
+    const syncAria = () => document.querySelectorAll('[data-opt]').forEach((b) =>
+      b.setAttribute('aria-checked', String(b.dataset.opt === root.dataset.focus)));
+    const applyFocus = (f, animate) => {
+      if (root.dataset.focus === f) return;
+      root.dataset.focus = f;
+      syncAria();
+      try {
+        const u = new URL(location.href);
+        u.searchParams.set('focus', f);
+        history.replaceState(null, '', u);
+      } catch (e) {}
+      if (animate) {
+        document.querySelectorAll('[data-group]').forEach((g, i) => g.animate && g.animate(
+          [{ opacity: 0, transform: 'translateY(16px)' }, { opacity: 1, transform: 'none' }],
+          { duration: 420, delay: i * 70, easing: 'cubic-bezier(0.2,0.7,0.2,1)', fill: 'backwards' }));
+      }
+    };
+    if (!window.__cvFocusInit) {
+      window.__cvFocusInit = true;
+      const q = new URLSearchParams(location.search).get('focus');
+      root.dataset.focus = ['design', 'ux'].includes(q) ? 'design' : 'writing';
+      requestAnimationFrame(syncAria);
+      document.addEventListener('click', (e) => {
+        const dl = document.querySelector('[data-dl]');
+        if (dl && dl.open && !dl.contains(e.target)) dl.open = false;
+      });
+    }
+    const printWith = (f) => () => {
+      applyFocus(f, false);
+      const dl = document.querySelector('[data-dl]');
+      if (dl) dl.open = false;
+      window.print();
+    };
+    return {
+      background,
+      focusDesign: () => applyFocus('design', true),
+      focusWriting: () => applyFocus('writing', true),
+      printDesign: printWith('design'),
+      printWriting: printWith('writing'),
+    };
   }
 }
 </script>
